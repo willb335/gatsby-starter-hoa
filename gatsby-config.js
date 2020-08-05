@@ -7,6 +7,10 @@ require("dotenv").config()
  */
 
 module.exports = {
+  siteMetadata: {
+    title: "Chapman Farms",
+    author: "William Bashelor",
+  },
   plugins: [
     {
       resolve: `gatsby-source-contentful`,
