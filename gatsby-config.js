@@ -1,4 +1,5 @@
 require("dotenv").config();
+const path = require("path");
 
 /**
  * Configure your Gatsby site with this file.
@@ -14,6 +15,15 @@ module.exports = {
     year: new Date().getFullYear(),
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
