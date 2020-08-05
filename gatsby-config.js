@@ -1,4 +1,4 @@
-require("dotenv").config()
+require("dotenv").config();
 
 /**
  * Configure your Gatsby site with this file.
@@ -10,6 +10,8 @@ module.exports = {
   siteMetadata: {
     title: "Chapman Farms",
     author: "William Bashelor",
+    hoa: "Chapman Farms",
+    year: new Date().getFullYear(),
   },
   plugins: [
     {
@@ -20,4 +22,4 @@ module.exports = {
       },
     },
   ],
-}
+};
