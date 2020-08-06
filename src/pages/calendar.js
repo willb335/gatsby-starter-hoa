@@ -30,12 +30,8 @@ function Calendar() {
   const events =
     items.length &&
     items.map(({ item }) => {
-      //   const start = moment(item.start).format("dddd, MMMM Do YYYY, h:mm:ss a");
-      //   const end = moment(item.end).format("dddd, MMMM Do YYYY, h:mm:ss a");
       const start = moment(item.start).toDate();
       const end = moment(item.end).toDate();
-      console.log("start year", start);
-      console.log("end year", end);
 
       return {
         id: item.id,
@@ -46,8 +42,6 @@ function Calendar() {
         description: item.description.description,
       };
     });
-
-  console.log("events", events);
 
   return (
     <Layout>
