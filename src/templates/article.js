@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import Img from "gatsby-image";
 
 import Layout from "../components/layout";
 
@@ -13,29 +14,27 @@ export const query = graphql`
         json
       }
     }
+
+    contentfulAsset(contentful_id: { eq: "6OpCYcrWVdQTvrhZc08xM5" }) {
+      id
+      title
+      sizes(quality: 100) {
+        ...GatsbyContentfulSizes_withWebp
+      }
+    }
   }
 `;
 
 function Article(props) {
-  //   const options = {
-  //     renderNode: {
-  //       "embedded-asset-block": node => {
-  //         const alt = node.data.target.fields.title["en-US"];
-  //         const url = node.data.target.fields.file["en-US"].url;
-  //         return <img alt={alt} src={url} />;
-  //       },
-  //     },
-  //   };
   console.log("article data", props.data);
+  const { contentfulAsset } = props.data;
 
   return (
     <Layout>
       <h1>{props.data.contentfulNews.title}</h1>
       <p>{props.data.contentfulNews.publishedDate}</p>
-      {documentToReactComponents(
-        props.data.contentfulNews.body.json
-        // options
-      )}
+      {documentToReactComponents(props.data.contentfulNews.body.json)}
+      <Img sizes={contentfulAsset.sizes} alt={contentfulAsset.title} />
     </Layout>
   );
 }
