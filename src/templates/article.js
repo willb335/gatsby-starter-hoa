@@ -6,7 +6,7 @@ import Img from "gatsby-image";
 import Layout from "../components/layout";
 
 export const query = graphql`
-  query($slug: String!) {
+  query($slug: String!, $id: String!) {
     contentfulNews(slug: { eq: $slug }) {
       title
       datePublished(formatString: "MMMM Do, YYYY")
@@ -15,11 +15,11 @@ export const query = graphql`
       }
     }
 
-    contentfulAsset(contentful_id: { eq: "6OpCYcrWVdQTvrhZc08xM5" }) {
+    contentfulAsset(contentful_id: { eq: $id }) {
       id
       title
-      sizes(quality: 100) {
-        ...GatsbyContentfulSizes_withWebp
+      fluid {
+        ...GatsbyContentfulFluid_withWebp
       }
     }
   }
@@ -34,7 +34,7 @@ function Article(props) {
       <h1>{props.data.contentfulNews.title}</h1>
       <p>{props.data.contentfulNews.publishedDate}</p>
       {documentToReactComponents(props.data.contentfulNews.body.json)}
-      <Img sizes={contentfulAsset.sizes} alt={contentfulAsset.title} />
+      <Img fluid={contentfulAsset.fluid} alt={contentfulAsset.title} />
     </Layout>
   );
 }

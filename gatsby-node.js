@@ -9,20 +9,24 @@ module.exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
+            contentful_id
           }
         }
       }
     }
   `);
-  console.log("data", JSON.stringify(res.data));
 
-  res.data.allContentfulNews.edges.forEach(edge => {
-    console.log("slug", JSON.stringify(edge.node.slug));
+  console.log("data", JSON.stringify(res.data));
+  const { allContentfulNews } = res.data;
+
+  allContentfulNews.edges.forEach(edge => {
+    console.log("id", JSON.stringify(edge.node.contentful_id));
     createPage({
       component: articleTemplate,
       path: `/news/${edge.node.slug}`,
       context: {
         slug: edge.node.slug,
+        id: "6OpCYcrWVdQTvrhZc08xM5",
       },
     });
   });
