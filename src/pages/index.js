@@ -16,7 +16,7 @@ export default function Home() {
           }
         }
       }
-      contentfulHome(title: { eq: "Welcome" }) {
+      contentfulHome(contentful_id: { eq: "4INJEtKpNVWj8YbwPMUUqO" }) {
         id
         body {
           json
