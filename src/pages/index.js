@@ -1,15 +1,14 @@
 import React from "react";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Img from "gatsby-image";
 
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Layout from "../components/layout";
 
 export default function Home() {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "wildflower_lane.jpg" }) {
+      file(relativePath: { eq: "ansgar-scheffold-4N4W2foPJhE-unsplash.jpg" }) {
         id
         childImageSharp {
           fluid {
@@ -31,13 +30,10 @@ export default function Home() {
   const { fluid } = data.file.childImageSharp;
 
   return (
-    <>
-      <Header />
+    <Layout>
       <h2>{title}</h2>
       <div>{documentToReactComponents(body.json)}</div>
       <Img fluid={fluid} fadeIn alt="House in Chapman Farms"></Img>
-
-      <Footer />
-    </>
+    </Layout>
   );
 }
