@@ -3,7 +3,6 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
-import CssBaseline from "@material-ui/core/CssBaseline";
 
 const StyledListItem = styled.li`
   list-style-type: none;
@@ -15,6 +14,10 @@ const StyledPaper = styled(Paper)`
 
 const StyledTitle = styled.h1`
   margin-left: 15px;
+`;
+
+const StyledHeader = styled.header`
+  margin-bottom: 30px;
 `;
 
 function Header() {
@@ -30,8 +33,7 @@ function Header() {
   const { title } = data.site.siteMetadata;
 
   return (
-    <header>
-      <CssBaseline />
+    <StyledHeader>
       <StyledPaper elevation={2}>
         <Grid container spacing={3} alignItems="center">
           <Grid item xs={4}>
@@ -70,7 +72,7 @@ function Header() {
           </Grid>
         </Grid>
       </StyledPaper>
-    </header>
+    </StyledHeader>
   );
 }
 

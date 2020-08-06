@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { useForm } from "react-hook-form";
 
+import Layout from "../components/layout";
+
 import ContactForm from "../components/contactForm";
 
 function Contact() {
@@ -24,11 +26,11 @@ function Contact() {
   console.log(title);
 
   return (
-    <>
+    <Layout>
       <div>{title}</div>
       <div>{documentToReactComponents(json)}</div>
       <ContactForm />
-    </>
+    </Layout>
   );
 }
 
