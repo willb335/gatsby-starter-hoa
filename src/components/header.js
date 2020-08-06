@@ -3,9 +3,14 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const StyledListItem = styled.li`
   list-style-type: none;
+`;
+
+const StyledPaper = styled(Paper)`
+  width: 100vw;
 `;
 
 function Header() {
@@ -22,44 +27,45 @@ function Header() {
 
   return (
     <header>
-      <Grid container spacing={3} alignItems="center" justify="space-around">
-        <Grid item xs={4}>
-          <Paper variant="outlined">
+      <CssBaseline />
+      <StyledPaper elevation={2}>
+        <Grid container spacing={3} alignItems="center">
+          <Grid item xs={4}>
             <h1>
               <Link to="/">{title}</Link>
             </h1>
-          </Paper>
+          </Grid>
+          <Grid item xs={8}>
+            <nav>
+              <ul>
+                <Grid container spacing={1} justify="space-evenly">
+                  <Grid item xs={2} />
+                  <Grid item xs={2}>
+                    <StyledListItem>
+                      <Link to="/community">Community</Link>
+                    </StyledListItem>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <StyledListItem>
+                      <Link to="/calendar">Calendar</Link>
+                    </StyledListItem>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <StyledListItem>
+                      <Link to="/news">News</Link>
+                    </StyledListItem>
+                  </Grid>
+                  <Grid item xs={2}>
+                    <StyledListItem>
+                      <Link to="/contact">Contact</Link>
+                    </StyledListItem>
+                  </Grid>
+                </Grid>
+              </ul>
+            </nav>
+          </Grid>
         </Grid>
-        <Grid item xs={8}>
-          <nav>
-            <ul>
-              <Grid container spacing={1} justify="space-around">
-                <Grid item xs={4} />
-                <Grid item xs={2}>
-                  <StyledListItem>
-                    <Link to="/community">Community</Link>
-                  </StyledListItem>
-                </Grid>
-                <Grid item xs={2}>
-                  <StyledListItem>
-                    <Link to="/calendar">Calendar</Link>
-                  </StyledListItem>
-                </Grid>
-                <Grid item xs={2}>
-                  <StyledListItem>
-                    <Link to="/news">News</Link>
-                  </StyledListItem>
-                </Grid>
-                <Grid item xs={2}>
-                  <StyledListItem>
-                    <Link to="/contact">Contact</Link>
-                  </StyledListItem>
-                </Grid>
-              </Grid>
-            </ul>
-          </nav>
-        </Grid>
-      </Grid>
+      </StyledPaper>
     </header>
   );
 }
