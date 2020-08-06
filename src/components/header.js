@@ -13,6 +13,10 @@ const StyledPaper = styled(Paper)`
   width: 100vw;
 `;
 
+const StyledTitle = styled.h1`
+  margin-left: 15px;
+`;
+
 function Header() {
   const data = useStaticQuery(graphql`
     query {
@@ -31,9 +35,9 @@ function Header() {
       <StyledPaper elevation={2}>
         <Grid container spacing={3} alignItems="center">
           <Grid item xs={4}>
-            <h1>
+            <StyledTitle>
               <Link to="/">{title}</Link>
-            </h1>
+            </StyledTitle>
           </Grid>
           <Grid item xs={8}>
             <nav>
