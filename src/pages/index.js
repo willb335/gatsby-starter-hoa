@@ -8,12 +8,11 @@ import Layout from "../components/layout";
 export default function Home() {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "ansgar-scheffold-4N4W2foPJhE-unsplash.jpg" }) {
+      contentfulAsset(contentful_id: { eq: "1oGFZ8nWAupdamJd0DOkV8" }) {
         id
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
+        title
+        fluid {
+          ...GatsbyContentfulFluid_withWebp
         }
       }
       contentfulHome(contentful_id: { eq: "4INJEtKpNVWj8YbwPMUUqO" }) {
@@ -27,13 +26,13 @@ export default function Home() {
   `);
 
   const { title, body } = data.contentfulHome;
-  const { fluid } = data.file.childImageSharp;
+  const { fluid } = data.contentfulAsset;
 
   return (
     <Layout>
       <h2>{title}</h2>
       <div>{documentToReactComponents(body.json)}</div>
-      <Img fluid={fluid} fadeIn alt="House in Chapman Farms"></Img>
+      <Img fluid={fluid} fadeIn alt={data.contentfulAsset.title}></Img>
     </Layout>
   );
 }
