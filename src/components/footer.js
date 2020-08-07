@@ -14,11 +14,14 @@ const StyledHr = styled.hr`
 const StyledFooter = styled.footer`
   margin-bottom: 10px;
   margin-top: 30px;
-  height: 90px;
+  max-height: 90px;
+  position: absolute;
+  width: 100vw;
 `;
 
 const StyledCopyright = styled(Typography)`
   margin-left: 10px;
+  height: 90px;
 `;
 
 const StyledGrid = styled(Grid)`
