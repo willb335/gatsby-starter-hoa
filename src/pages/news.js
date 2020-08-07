@@ -3,6 +3,8 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
+import Paper from "@material-ui/core/Paper";
+import Img from "gatsby-image";
 
 import Layout from "../components/layout";
 
@@ -37,6 +39,11 @@ function News() {
             datePublished(formatString: "MMMM Do, YYYY")
             author
             id
+            mainImage {
+              fixed(width: 300, height: 300, quality: 100) {
+                ...GatsbyContentfulFixed_withWebp
+              }
+            }
           }
         }
       }
@@ -44,6 +51,8 @@ function News() {
   `);
 
   const { articles } = data.allContentfulNews;
+
+  console.log(articles);
 
   return (
     <Layout>
@@ -56,7 +65,7 @@ function News() {
         <Grid item xs={12} md={12} style={{ marginTop: "10vh" }}>
           <Typography variant="h3">News</Typography>
         </Grid>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={6}>
           <ul style={{ padding: 0 }}>
             {articles.map(({ article }) => {
               return (
@@ -72,11 +81,15 @@ function News() {
                   <StyledTypography variant="body1">
                     {article.datePublished}
                   </StyledTypography>
+                  <Paper style={{ width: 300, height: 300 }}>
+                    <Img fixed={article.mainImage.fixed} fadeIn alt="i"></Img>
+                  </Paper>
                 </StyledArticle>
               );
             })}
           </ul>
         </Grid>
+        {/* <Grid item xs={12} md={6}></Grid> */}
       </Grid>
     </Layout>
   );
