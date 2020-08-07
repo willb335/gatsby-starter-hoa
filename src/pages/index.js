@@ -47,7 +47,7 @@ export default function Home() {
         spacing={3}
         alignItems="center"
         justify="space-between"
-        style={{ paddingLeft: "2vw", paddingRight: "2vw" }}
+        style={{ paddingLeft: "3vw", paddingRight: "3vw" }}
       >
         <Grid item xs={12} md={12}>
           <Typography variant="h2" color="textPrimary">

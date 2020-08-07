@@ -6,9 +6,9 @@ import Typography from "@material-ui/core/Typography";
 
 const StyledHr = styled.hr`
   ${({ theme }) => `
-    border: 1px solid ${theme.palette.grey[200]};
-    margin-left: 2vw;
-    margin-right: 2vw;`}
+    border: 1px solid ${theme.palette.grey[300]};
+    margin-left: 3vw;
+    margin-right: 3vw;`}
 `;
 
 const StyledFooter = styled.footer`

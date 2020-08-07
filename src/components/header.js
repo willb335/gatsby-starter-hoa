@@ -51,9 +51,9 @@ const StyledTypography = styled(Typography)`
 
 const StyledHr = styled.hr`
   ${({ theme }) => `
-    border: 1px solid ${theme.palette.grey[200]};
-    margin-left: 2vw;
-    margin-right: 2vw;`}
+    border: 1px solid ${theme.palette.grey[300]};
+    margin-left: 3vw;
+    margin-right: 3vw;`}
 `;
 
 function Header() {
@@ -70,7 +70,12 @@ function Header() {
 
   return (
     <StyledHeader>
-      <Grid container spacing={3} alignItems="center">
+      <Grid
+        container
+        spacing={3}
+        alignItems="center"
+        style={{ paddingLeft: "3vw", paddingRight: "3vw" }}
+      >
         <Grid item xs={4}>
           <StyledTitle>
             <StyledHomeLink to="/">

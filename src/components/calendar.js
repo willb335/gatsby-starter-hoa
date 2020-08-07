@@ -44,6 +44,7 @@ function BigCalendar({ events }) {
             height: "80vh",
             maxWidth: "90vw",
             marginLeft: "calc(50% - 45vw)",
+            marginBottom: "4vh",
           }}
           titleAccessor={e => e.title}
           onSelectEvent={(obj, e) => handleSelectEvent(obj, e)}
