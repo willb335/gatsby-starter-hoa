@@ -69,7 +69,7 @@ export default function Home() {
         justify="center"
         style={{ paddingLeft: "2vw", paddingRight: "2vw" }}
       >
-        <Grid item xs={12} md={12} style={{ marginTop: 15, marginBottom: 15 }}>
+        <Grid item xs={12} md={12} style={{ marginTop: 20, marginBottom: 20 }}>
           <Typography variant="h3" color="textPrimary">
             Photo Gallery
           </Typography>
