@@ -12,6 +12,7 @@ const localizer = momentLocalizer(moment);
 
 const StyledGrid = styled(Grid)`
   padding: 20px;
+  text-align: center;
 `;
 
 function BigCalendar({ events }) {
@@ -67,16 +68,16 @@ function BigCalendar({ events }) {
         >
           <StyledGrid container justify="center" alignItems="center">
             <Grid item xs={12} m={6}>
-              <Typography>{event.title}</Typography>
+              <Typography variant="h6">{event.title}</Typography>
             </Grid>
             <Grid item xs={12} m={6}>
-              <Typography>{event.description}</Typography>
+              <Typography variant="body1">{event.description}</Typography>
             </Grid>
             <Grid item xs={12} m={6}>
-              <Typography>{event.start?.toString()}</Typography>
+              <Typography variant="body1">{event.start?.toString()}</Typography>
             </Grid>
             <Grid item xs={12} m={6}>
-              <Typography>{event.end?.toString()}</Typography>
+              <Typography variant="body1">{event.end?.toString()}</Typography>
             </Grid>
           </StyledGrid>
         </Popover>
