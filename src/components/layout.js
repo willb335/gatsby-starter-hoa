@@ -5,7 +5,10 @@ import {
   createMuiTheme,
   StylesProvider,
 } from "@material-ui/core/styles";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import styled, {
+  ThemeProvider as StyledThemeProvider,
+} from "styled-components";
+import Grid from "@material-ui/core/Grid";
 
 import Header from "./header";
 import Footer from "./footer";
@@ -25,15 +28,34 @@ const theme = createMuiTheme({
   },
 });
 
+const Container = styled.div`
+  padding-bottom: 5rem;
+`;
+
+const PageContainer = styled.div`
+  position: relative;
+  min-height: 100vh;
+`;
+
 function Layout({ children }) {
   return (
     <StylesProvider injectFirst>
       <ThemeProvider theme={theme}>
         <StyledThemeProvider theme={theme}>
           <CssBaseline />
-          <Header />
-          {children}
-          <Footer />
+          {/* <Grid container direction="column" alignItems="stretch">
+            <Grid item xs={12}> */}
+          <PageContainer>
+            <Header />
+            {/* </Grid>
+          </Grid> */}
+            {/* <Grid item xs={12}> */}
+            <Container> {children}</Container>
+            {/* </Grid>
+          <Grid item xs={12}> */}
+            <Footer />
+          </PageContainer>
+          {/* </Grid> */}
         </StyledThemeProvider>
       </ThemeProvider>
     </StylesProvider>

@@ -34,7 +34,6 @@ const StyledHomeLink = styled(Link)`
 
 const StyledTypography = styled(Typography)`
   ${({ theme }) => `
-  border-bottom: 1px solid ${theme.palette.grey[200]};
   color: ${theme.palette.secondary.main};
   transition: color 0.6s;
   text-align: center;
