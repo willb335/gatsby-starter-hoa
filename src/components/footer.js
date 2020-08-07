@@ -1,5 +1,28 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import Grid from "@material-ui/core/Grid";
+import styled from "styled-components";
+import Typography from "@material-ui/core/Typography";
+
+const StyledHr = styled.hr`
+  ${({ theme }) => `border: 1px solid ${theme.palette.grey[200]};
+margin-left: 2vw;
+margin-right: 2vw;`}
+`;
+
+const StyledFooter = styled.footer`
+  margin-bottom: 10px;
+  margin-top: 30px;
+  height: 90px;
+`;
+
+const StyledCopyright = styled(Typography)`
+  margin-left: 10px;
+`;
+
+const StyledGrid = styled(Grid)`
+  height: 100%;
+`;
 
 function Footer() {
   const data = useStaticQuery(graphql`
@@ -16,9 +39,17 @@ function Footer() {
   const { hoa, year } = data.site.siteMetadata;
 
   return (
-    <footer>
-      <p>{`© ${hoa} ${year}`}</p>
-    </footer>
+    <StyledFooter>
+      <StyledHr></StyledHr>
+      <StyledGrid container spacing={3} alignItems="center">
+        <Grid item xs={4}>
+          <StyledCopyright
+            variant="body1"
+            color="secondary"
+          >{`© ${hoa} ${year}`}</StyledCopyright>
+        </Grid>
+      </StyledGrid>
+    </StyledFooter>
   );
 }
 

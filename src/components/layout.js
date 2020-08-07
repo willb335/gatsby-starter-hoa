@@ -5,6 +5,7 @@ import {
   createMuiTheme,
   StylesProvider,
 } from "@material-ui/core/styles";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
 import Header from "./header";
 import Footer from "./footer";
@@ -28,10 +29,12 @@ function Layout({ children }) {
   return (
     <StylesProvider injectFirst>
       <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Header />
-        {children}
-        <Footer />
+        <StyledThemeProvider theme={theme}>
+          <CssBaseline />
+          <Header />
+          {children}
+          <Footer />
+        </StyledThemeProvider>
       </ThemeProvider>
     </StylesProvider>
   );

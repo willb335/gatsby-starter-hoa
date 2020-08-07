@@ -1,16 +1,12 @@
 import React from "react";
 import { Link, graphql, useStaticQuery } from "gatsby";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
 
 const StyledListItem = styled.li`
   list-style-type: none;
-`;
-
-const StyledPaper = styled(Paper)`
-  width: 100vw;
+  /* border-bottom: 1px solid #2d3748; */
 `;
 
 const StyledTitle = styled.h1`
@@ -19,16 +15,17 @@ const StyledTitle = styled.h1`
 
 const StyledHeader = styled.header`
   margin-bottom: 30px;
+  margin-top: 10px;
 `;
 
 const StyledLink = styled(Link)`
+  ${({ theme }) => `
   text-decoration: none;
-  color: #5f6c80;
-
+  color: ${theme.palette.secondary.main};
   &:hover {
     text-decoration: underline;
-    color: #000000;
-  }
+    color: ${theme.palette.text.primary};
+  }`}
 `;
 
 const StyledHomeLink = styled(Link)`
@@ -37,11 +34,18 @@ const StyledHomeLink = styled(Link)`
 
 const StyledTypography = styled(Typography)`
   color: #5f6c80;
-  transition: color 0.5s;
+  transition: color 0.6s;
+  text-align: center;
 
   &:hover {
     color: #000000;
   }
+`;
+
+const StyledHr = styled.hr`
+  border: 1px solid #eeeeee;
+  margin-left: 2vw;
+  margin-right: 2vw;
 `;
 
 function Header() {
@@ -58,65 +62,63 @@ function Header() {
 
   return (
     <StyledHeader>
-      <StyledPaper elevation={0}>
-        <Grid container spacing={3} alignItems="center">
-          <Grid item xs={4}>
-            <StyledTitle>
-              <StyledHomeLink to="/">
-                <Typography variant="h4" color="textPrimary">
-                  {title}
-                </Typography>
-              </StyledHomeLink>
-            </StyledTitle>
-          </Grid>
-          <Grid item xs={8}>
-            <nav>
-              <ul>
-                <Grid container spacing={0} justify="space-between">
-                  <Grid item xs={2}>
-                    <StyledListItem>
-                      <StyledLink to="/community">
-                        <StyledTypography variant="h6" color="secondary">
-                          Community
-                        </StyledTypography>
-                      </StyledLink>
-                    </StyledListItem>
-                  </Grid>
-                  <Grid item xs={2}>
-                    <StyledListItem>
-                      <StyledLink to="/calendar">
-                        <StyledTypography variant="h6" color="secondary">
-                          Calendar{" "}
-                        </StyledTypography>
-                      </StyledLink>
-                    </StyledListItem>
-                  </Grid>
-                  <Grid item xs={2}>
-                    <StyledListItem>
-                      <StyledLink to="/news">
-                        <StyledTypography variant="h6" color="secondary">
-                          News
-                          {"     "}
-                        </StyledTypography>
-                      </StyledLink>
-                    </StyledListItem>
-                  </Grid>
-                  <Grid item xs={2}>
-                    <StyledListItem>
-                      <StyledLink to="/contact">
-                        <StyledTypography variant="h6" color="secondary">
-                          Contact
-                          {"  "}
-                        </StyledTypography>
-                      </StyledLink>
-                    </StyledListItem>
-                  </Grid>
-                </Grid>
-              </ul>
-            </nav>
-          </Grid>
+      <Grid container spacing={3} alignItems="center">
+        <Grid item xs={4}>
+          <StyledTitle>
+            <StyledHomeLink to="/">
+              <Typography variant="h4" color="textPrimary">
+                {title}
+              </Typography>
+            </StyledHomeLink>
+          </StyledTitle>
         </Grid>
-      </StyledPaper>
+        <Grid item xs={1}></Grid>
+        <Grid item xs={7}>
+          <nav>
+            <ul>
+              <Grid container spacing={1} justify="space-between">
+                <Grid item xs={3}>
+                  <StyledListItem>
+                    <StyledLink to="/community">
+                      <StyledTypography variant="h6" color="secondary">
+                        Community
+                      </StyledTypography>
+                    </StyledLink>
+                  </StyledListItem>
+                </Grid>
+                <Grid item xs={3}>
+                  <StyledListItem>
+                    <StyledLink to="/calendar">
+                      <StyledTypography variant="h6" color="secondary">
+                        Calendar
+                      </StyledTypography>
+                    </StyledLink>
+                  </StyledListItem>
+                </Grid>
+                <Grid item xs={3}>
+                  <StyledListItem>
+                    <StyledLink to="/news">
+                      <StyledTypography variant="h6" color="secondary">
+                        News
+                      </StyledTypography>
+                    </StyledLink>
+                  </StyledListItem>
+                </Grid>
+                <Grid item xs={3}>
+                  <StyledListItem>
+                    <StyledLink to="/contact">
+                      <StyledTypography variant="h6" color="secondary">
+                        Contact
+                      </StyledTypography>
+                    </StyledLink>
+                  </StyledListItem>
+                </Grid>
+              </Grid>
+            </ul>
+          </nav>
+        </Grid>
+      </Grid>
+      <StyledHr></StyledHr>
     </StyledHeader>
   );
 }
