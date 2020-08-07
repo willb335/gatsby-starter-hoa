@@ -19,11 +19,13 @@ const StyledFooter = styled.footer`
 `;
 
 const StyledCopyright = styled(Typography)`
-  margin-left: 10px;
+  /* margin-left: 10px; */
 `;
 
 const StyledGrid = styled(Grid)`
   height: 5rem;
+  padding-left: 2vw;
+  padding-right: 2vw;
 `;
 
 function Footer() {

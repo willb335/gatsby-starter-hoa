@@ -133,6 +133,11 @@ const StyledAppBar = styled(AppBar)`
   margin: 0;
 `;
 
+const StyledMobileHeader = styled.header`
+  margin-top: 10px;
+  margin-bottom: 15px;
+`;
+
 export function MobileHeader() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -145,7 +150,7 @@ export function MobileHeader() {
   };
 
   return (
-    <header>
+    <StyledMobileHeader>
       <StyledAppBar position="static" color="transparent">
         <Toolbar>
           <IconButton
@@ -209,6 +214,6 @@ export function MobileHeader() {
         </Toolbar>
       </StyledAppBar>
       <StyledHr></StyledHr>
-    </header>
+    </StyledMobileHeader>
   );
 }

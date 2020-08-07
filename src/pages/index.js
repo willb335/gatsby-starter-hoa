@@ -5,11 +5,16 @@ import Img from "gatsby-image";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
+import Paper from "@material-ui/core/Paper";
 
 import Layout from "../components/layout";
 
 const StyledImage = styled(Img)`
-  width: calc(100% - 2vw);
+  width: 100%;
+`;
+
+const StyledPaper = styled(Paper)`
+  width: 100%;
 `;
 
 export default function Home() {
@@ -42,7 +47,7 @@ export default function Home() {
         spacing={3}
         alignItems="center"
         justify="space-between"
-        style={{ paddingLeft: "2vw" }}
+        style={{ paddingLeft: "2vw", paddingRight: "2vw" }}
       >
         <Grid item xs={12} md={12}>
           <Typography variant="h2" color="textPrimary">
@@ -55,11 +60,13 @@ export default function Home() {
           </Typography>
         </Grid>
         <Grid item xs={12} md={7}>
-          <StyledImage
-            fluid={fluid}
-            fadeIn
-            alt={data.contentfulAsset.title}
-          ></StyledImage>
+          <StyledPaper elevation={3}>
+            <StyledImage
+              fluid={fluid}
+              fadeIn
+              alt={data.contentfulAsset.title}
+            ></StyledImage>
+          </StyledPaper>
         </Grid>
       </Grid>
     </Layout>
