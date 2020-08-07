@@ -5,9 +5,10 @@ import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
 
 const StyledHr = styled.hr`
-  ${({ theme }) => `border: 1px solid ${theme.palette.grey[200]};
-margin-left: 2vw;
-margin-right: 2vw;`}
+  ${({ theme }) => `
+    border: 1px solid ${theme.palette.grey[200]};
+    margin-left: 2vw;
+    margin-right: 2vw;`}
 `;
 
 const StyledFooter = styled.footer`

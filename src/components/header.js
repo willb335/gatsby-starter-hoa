@@ -33,19 +33,22 @@ const StyledHomeLink = styled(Link)`
 `;
 
 const StyledTypography = styled(Typography)`
-  color: #5f6c80;
+  ${({ theme }) => `
+  border-bottom: 1px solid ${theme.palette.grey[200]};
+  color: ${theme.palette.secondary.main};
   transition: color 0.6s;
   text-align: center;
 
   &:hover {
-    color: #000000;
-  }
+    color: ${theme.palette.text.primary};
+  }`}
 `;
 
 const StyledHr = styled.hr`
-  border: 1px solid #eeeeee;
-  margin-left: 2vw;
-  margin-right: 2vw;
+  ${({ theme }) => `
+    border: 1px solid ${theme.palette.grey[200]};
+    margin-left: 2vw;
+    margin-right: 2vw;`}
 `;
 
 function Header() {
