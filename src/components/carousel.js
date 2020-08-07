@@ -19,7 +19,7 @@ class Carousel extends React.Component {
           value={this.state.value}
           onChange={this.onchange}
           onClick={this.onClick}
-          plugins={["infinite"]}
+          plugins={["infinite", "clickToChange", "fastSwipe"]}
         >
           {this.props.children}
         </ReactCarousel>

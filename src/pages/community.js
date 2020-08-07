@@ -5,6 +5,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import Typography from "@material-ui/core/Typography";
 
 import Layout from "../components/layout";
 import Carousel from "../components/carousel";
@@ -14,6 +15,10 @@ const StyledImg = styled(Img)`
 `;
 const StyledPaper = styled(Paper)`
   width: 75%;
+`;
+
+const StyledBody = styled(Typography)`
+  font-size: 20px;
 `;
 
 export default function Home() {
@@ -54,7 +59,9 @@ export default function Home() {
         style={{ paddingLeft: "2vw", paddingRight: "2vw" }}
       >
         <Grid item xs={12} md={12}>
-          <h2>Photo Gallery</h2>
+          <Typography variant="h3" color="textPrimary">
+            Photo Gallery
+          </Typography>
         </Grid>
         <Grid item xs={12} md={12}>
           <Carousel />
@@ -73,10 +80,14 @@ export default function Home() {
           </Carousel>
         </Grid>
         <Grid item xs={12} md={12}>
-          <h2>{title}</h2>
+          <Typography variant="h3" color="textPrimary">
+            {title}
+          </Typography>
         </Grid>
         <Grid item xs={12} md={12}>
-          <div>{documentToReactComponents(body.json)}</div>
+          <StyledBody component="div" color="textSecondary">
+            {documentToReactComponents(body.json)}
+          </StyledBody>
         </Grid>
       </Grid>
     </Layout>
