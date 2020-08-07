@@ -6,15 +6,22 @@ import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import Layout from "../components/layout";
 import Carousel from "../components/carousel";
 
 const StyledImg = styled(Img)`
   width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 `;
 const StyledPaper = styled(Paper)`
   width: 75%;
+`;
+const StyledPaperDesktop = styled(Paper)`
+  height: 700px;
 `;
 
 const StyledBody = styled(Typography)`
@@ -22,6 +29,7 @@ const StyledBody = styled(Typography)`
 `;
 
 export default function Home() {
+  const matches = useMediaQuery("(max-width:960px)");
   const data = useStaticQuery(graphql`
     query {
       allFile(filter: { relativeDirectory: { eq: "carousel" } }) {
@@ -31,6 +39,9 @@ export default function Home() {
             childImageSharp {
               fluid {
                 ...GatsbyImageSharpFluid
+              }
+              fixed(width: 700, height: 700, quality: 100) {
+                ...GatsbyImageSharpFixed
               }
             }
           }
@@ -69,12 +80,16 @@ export default function Home() {
         <Grid item xs={12} md={12}>
           <Carousel>
             {photos.map((photo, i) => {
-              const { fluid } = photo.node.childImageSharp;
+              const { fluid, fixed } = photo.node.childImageSharp;
               const { id } = photo.node;
-              return (
+              return matches ? (
                 <StyledPaper key={id} elevation={3}>
                   <StyledImg fluid={fluid} fadeIn alt="i"></StyledImg>
                 </StyledPaper>
+              ) : (
+                <StyledPaperDesktop key={id} elevation={3}>
+                  <StyledImg fixed={fixed} fadeIn alt="i"></StyledImg>{" "}
+                </StyledPaperDesktop>
               );
             })}
           </Carousel>

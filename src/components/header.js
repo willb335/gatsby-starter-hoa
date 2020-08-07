@@ -155,7 +155,6 @@ export function MobileHeader() {
         <Toolbar>
           <IconButton
             edge="start"
-            color="transparent"
             aria-label="menu"
             aria-controls="simple-menu"
             aria-haspopup="true"
