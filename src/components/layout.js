@@ -26,6 +26,7 @@ const theme = createMuiTheme({
       secondary: "#5f6c80",
     },
   },
+  typography: { h3: { fontWeight: 700 } },
 });
 
 const ContentContainer = styled.div`
