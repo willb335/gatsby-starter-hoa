@@ -8,7 +8,6 @@ import {
 import styled, {
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
-import Grid from "@material-ui/core/Grid";
 
 import Header from "./header";
 import Footer from "./footer";
@@ -28,7 +27,7 @@ const theme = createMuiTheme({
   },
 });
 
-const Container = styled.div`
+const ContentContainer = styled.div`
   padding-bottom: 5rem;
 `;
 
@@ -43,19 +42,11 @@ function Layout({ children }) {
       <ThemeProvider theme={theme}>
         <StyledThemeProvider theme={theme}>
           <CssBaseline />
-          {/* <Grid container direction="column" alignItems="stretch">
-            <Grid item xs={12}> */}
           <PageContainer>
             <Header />
-            {/* </Grid>
-          </Grid> */}
-            {/* <Grid item xs={12}> */}
-            <Container> {children}</Container>
-            {/* </Grid>
-          <Grid item xs={12}> */}
+            <ContentContainer> {children}</ContentContainer>
             <Footer />
           </PageContainer>
-          {/* </Grid> */}
         </StyledThemeProvider>
       </ThemeProvider>
     </StylesProvider>
