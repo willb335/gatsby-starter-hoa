@@ -9,8 +9,7 @@ import styled from "styled-components";
 import Layout from "../components/layout";
 
 const StyledImage = styled(Img)`
-  width: calc(100% - 4vw);
-  margin-left: 2vw;
+  width: calc(100% - 2vw);
 `;
 
 export default function Home() {
@@ -45,17 +44,17 @@ export default function Home() {
         justify="space-between"
         style={{ paddingLeft: "2vw" }}
       >
-        <Grid item xs={12}>
+        <Grid item xs={12} md={12}>
           <Typography variant="h2" color="textPrimary">
             {title}
           </Typography>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={12} md={5}>
           <Typography variant="body1" color="textSecondary" component="div">
             {documentToReactComponents(body.json)}
           </Typography>
         </Grid>
-        <Grid item xs={7}>
+        <Grid item xs={12} md={7}>
           <StyledImage
             fluid={fluid}
             fadeIn

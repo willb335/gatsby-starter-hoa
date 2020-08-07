@@ -47,7 +47,7 @@ function Footer() {
         <Grid item xs={4}>
           <StyledCopyright
             variant="body1"
-            color="secondary"
+            color="textPrimary"
           >{`© ${hoa} ${year}`}</StyledCopyright>
         </Grid>
       </StyledGrid>

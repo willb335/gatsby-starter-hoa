@@ -8,21 +8,22 @@ import {
 import styled, {
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
-import Header from "./header";
+import Header, { MobileHeader } from "./header";
 import Footer from "./footer";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#2d3748",
+      main: "#000000",
     },
     secondary: {
-      main: "#5f6c80",
+      main: "#ffffff",
     },
     text: {
-      primary: "#000000",
-      secondary: "#2d3748",
+      primary: "#2d3748",
+      secondary: "#5f6c80",
     },
   },
 });
@@ -37,13 +38,15 @@ const PageContainer = styled.div`
 `;
 
 function Layout({ children }) {
+  const matches = useMediaQuery("(max-width:960px)");
+
   return (
     <StylesProvider injectFirst>
       <ThemeProvider theme={theme}>
         <StyledThemeProvider theme={theme}>
           <CssBaseline />
           <PageContainer>
-            <Header />
+            {matches ? <MobileHeader /> : <Header />}
             <ContentContainer> {children}</ContentContainer>
             <Footer />
           </PageContainer>
