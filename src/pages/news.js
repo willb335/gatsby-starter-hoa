@@ -3,9 +3,8 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
-import Paper from "@material-ui/core/Paper";
-import Img from "gatsby-image";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Pagination from "@material-ui/lab/Pagination";
 
 import Layout from "../components/layout";
 
@@ -30,10 +29,14 @@ const StyledLink = styled(Link)`
 `;
 
 function News() {
-  const mobile = useMediaQuery("(max-width:960px)");
+  const [page, setPage] = React.useState(1);
   const data = useStaticQuery(graphql`
-    query {
-      allContentfulNews(sort: { fields: datePublished, order: DESC }) {
+    query articles($skip: Int! = 0) {
+      allContentfulNews(
+        sort: { fields: datePublished, order: DESC }
+        limit: 5
+        skip: $skip
+      ) {
         articles: edges {
           article: node {
             title
@@ -52,6 +55,12 @@ function News() {
       }
     }
   `);
+
+  const handlePaginationChange = (e, value) => {
+    console.log(value);
+
+    setPage(value);
+  };
 
   const { articles } = data.allContentfulNews;
 
@@ -82,29 +91,18 @@ function News() {
                         {article.datePublished}
                       </StyledTypography>
                     </Grid>
-
-                    {/* <Grid
-                      item
-                      xs={12}
-                      md={12}
-                      style={{
-                        position: mobile ? "relative" : "absolute",
-                        left: !mobile && "27vw",
-                      }}
-                    >
-                      <Paper elevation={5} style={{ width: 150, height: 150 }}>
-                        <Img
-                          fixed={article.mainImage.fixed}
-                          fadeIn
-                          alt={article.mainImage.description}
-                        ></Img>
-                      </Paper>
-                    </Grid> */}
                   </Grid>
                 </StyledArticle>
               );
             })}
           </ul>
+          <Grid item xs={12}>
+            <Pagination
+              page={page}
+              onChange={handlePaginationChange}
+              count={Math.ceil(articles?.length / 5)}
+            ></Pagination>
+          </Grid>
         </Grid>
       </Grid>
     </Layout>
