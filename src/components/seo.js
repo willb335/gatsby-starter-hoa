@@ -30,7 +30,15 @@ function Seo({ description, keywords, title, image, url, author }) {
         { property: `og:title`, content: metaTitle },
         { property: `og:description`, content: metaDescription },
         { property: `og:type`, content: `website` },
-      ]}
+        { property: "og:image", content: metaImage },
+      ].concat(
+        metaKeywords.length
+          ? {
+              name: "keywords",
+              content: metaKeywords.join(`, `),
+            }
+          : []
+      )}
     ></Helmet>
   );
 }
