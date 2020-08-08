@@ -120,7 +120,7 @@ const StyledAppBar = styled(AppBar)`
   margin: 0;
 `;
 
-const MobileHeader = styled.header`
+const StyledMobileHeader = styled.header`
   margin-top: 10px;
 `;
 

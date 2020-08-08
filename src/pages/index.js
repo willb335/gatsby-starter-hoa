@@ -10,11 +10,11 @@ import Paper from "@material-ui/core/Paper";
 import Layout from "../components/layout";
 
 const StyledImage = styled(Img)`
-  width: 100%;
+  /* width: 100%; */
 `;
 
 const StyledPaper = styled(Paper)`
-  width: 100%;
+  /* width: 100%; */
 `;
 
 export default function Home() {
@@ -42,13 +42,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <Grid
-        container
-        spacing={3}
-        alignItems="center"
-        justify="space-between"
-        style={{ paddingLeft: "3vw", paddingRight: "3vw" }}
-      >
+      <Grid container spacing={3} alignItems="center" justify="space-between">
         <Grid item xs={12} md={12}>
           <Typography variant="h2" color="textPrimary">
             {title}
@@ -59,8 +53,9 @@ export default function Home() {
             {documentToReactComponents(body.json)}
           </Typography>
         </Grid>
-        <Grid item xs={12} md={7}>
-          <StyledPaper elevation={3}>
+        <Grid item xs={false} md={1}></Grid>
+        <Grid item xs={12} md={6}>
+          <StyledPaper elevation={5}>
             <StyledImage
               fluid={fluid}
               fadeIn

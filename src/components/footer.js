@@ -7,25 +7,18 @@ import Typography from "@material-ui/core/Typography";
 const StyledHr = styled.hr`
   ${({ theme }) => `
     border: 1px solid ${theme.palette.grey[300]};
-    margin-left: 3vw;
-    margin-right: 3vw;`}
+    `}
 `;
 
 const StyledFooter = styled.footer`
-  width: 100vw;
+  width: calc(100vw - 10vw);
   position: absolute;
   bottom: 0;
   height: 5rem;
-`;
 
-const StyledCopyright = styled(Typography)`
-  /* margin-left: 10px; */
-`;
-
-const StyledGrid = styled(Grid)`
-  height: 5rem;
-  padding-left: 3vw;
-  padding-right: 3vw;
+  @media (min-width: 1366px) {
+    width: calc(1366px - 10vw);
+  }
 `;
 
 function Footer() {
@@ -45,14 +38,19 @@ function Footer() {
   return (
     <StyledFooter>
       <StyledHr></StyledHr>
-      <StyledGrid container spacing={3} alignItems="center">
+      <Grid
+        container
+        spacing={3}
+        alignItems="center"
+        style={{ height: "100%" }}
+      >
         <Grid item xs={4}>
-          <StyledCopyright
+          <Typography
             variant="body1"
             color="textPrimary"
-          >{`© ${hoa} ${year}`}</StyledCopyright>
+          >{`© ${hoa} ${year}`}</Typography>
         </Grid>
-      </StyledGrid>
+      </Grid>
     </StyledFooter>
   );
 }
