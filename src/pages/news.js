@@ -11,7 +11,7 @@ import Layout from "../components/layout";
 
 const StyledArticle = styled.li`
   list-style-type: none;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
 `;
 
 const StyledTypography = styled(Typography)`
@@ -59,7 +59,9 @@ function News() {
     <Layout>
       <Grid container spacing={0} alignItems="center">
         <Grid item xs={12} md={12}>
-          <Typography variant="h3">News</Typography>
+          <Typography variant="h3" style={{ marginBottom: 22 }}>
+            News
+          </Typography>
         </Grid>
         <Grid item xs={12} md={12}>
           <ul style={{ padding: 0 }}>

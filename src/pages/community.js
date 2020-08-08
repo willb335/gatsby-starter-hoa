@@ -44,9 +44,13 @@ export default function Home() {
 
   return (
     <Layout>
-      <Grid container spacing={1} alignItems="center" justify="center">
+      <Grid container spacing={0} alignItems="center" justify="center">
         <Grid item xs={12} md={12}>
-          <Typography variant="h3" color="textPrimary">
+          <Typography
+            variant="h3"
+            color="textPrimary"
+            style={{ marginBottom: 22 }}
+          >
             {title}
           </Typography>
         </Grid>
