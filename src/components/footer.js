@@ -28,14 +28,14 @@ function Footer() {
     query {
       site {
         siteMetadata {
-          hoa
+          title
           year
         }
       }
     }
   `);
 
-  const { hoa, year } = data.site.siteMetadata;
+  const { title, year } = data.site.siteMetadata;
 
   return (
     <StyledFooter>
@@ -50,7 +50,7 @@ function Footer() {
           <Typography
             variant="body1"
             color="textPrimary"
-          >{`© ${hoa} ${year}`}</Typography>
+          >{`© ${title} ${year}`}</Typography>
         </Grid>
       </Grid>
     </StyledFooter>
