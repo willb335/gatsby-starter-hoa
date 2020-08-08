@@ -15,7 +15,7 @@ const StyledFooter = styled.footer`
   position: absolute;
   bottom: 0;
   height: 5rem;
-  margin-top: 5vh;
+  margin-top: 400px;
   /* padding-top: 5rem; */
 
   @media (min-width: 1366px) {
@@ -46,7 +46,7 @@ function Footer() {
         alignItems="center"
         style={{ height: "100%" }}
       >
-        <Grid item xs={4}>
+        <Grid item xs={12}>
           <Typography
             variant="body1"
             color="textPrimary"

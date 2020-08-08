@@ -45,7 +45,7 @@ export default function Home() {
           </Typography>
         </Grid>
         <Grid item xs={12} md={5}>
-          <Typography variant="body1" color="textSecondary" component="div">
+          <Typography color="textSecondary" component="div">
             {documentToReactComponents(body.json)}
           </Typography>
         </Grid>
