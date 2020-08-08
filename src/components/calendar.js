@@ -4,16 +4,10 @@ import moment from "moment";
 import Grid from "@material-ui/core/Grid";
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
-import styled from "styled-components";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
-
-const StyledGrid = styled(Grid)`
-  padding: 20px;
-  text-align: center;
-`;
 
 function BigCalendar({ events }) {
   const [event, setEvent] = useState({});
@@ -21,9 +15,7 @@ function BigCalendar({ events }) {
 
   const handleSelectEvent = (obj, event) => {
     setAnchorEl(event.currentTarget);
-
     setEvent(obj);
-    console.log(obj);
   };
 
   const handleClose = () => {
@@ -40,34 +32,25 @@ function BigCalendar({ events }) {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{
-            height: "80vh",
-            maxWidth: "90vw",
-            marginLeft: "calc(50% - 45vw)",
-            marginBottom: "4vh",
-          }}
+          style={{ height: "80vh", maxWidth: 1333, marginBottom: "5vh" }}
           titleAccessor={e => e.title}
           onSelectEvent={(obj, e) => handleSelectEvent(obj, e)}
-          views={{
-            month: true,
-            week: true,
-          }}
+          views={{ month: true, week: true }}
         />
         <Popover
           id={id}
           open={open}
           anchorEl={anchorEl}
           onClose={handleClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "center",
-          }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
-          <StyledGrid container justify="center" alignItems="center">
+          <Grid
+            container
+            justify="center"
+            alignItems="center"
+            style={{ padding: 20, textAlign: "center" }}
+          >
             <Grid item xs={12} m={6}>
               <Typography variant="h6">{event.title}</Typography>
             </Grid>
@@ -80,7 +63,7 @@ function BigCalendar({ events }) {
             <Grid item xs={12} m={6}>
               <Typography variant="body1">{event.end?.toString()}</Typography>
             </Grid>
-          </StyledGrid>
+          </Grid>
         </Popover>
       </Grid>
     </Grid>
