@@ -59,9 +59,7 @@ function News() {
     <Layout>
       <Grid container spacing={0} alignItems="center">
         <Grid item xs={12} md={12}>
-          <Typography variant="h3" style={{ marginBottom: 22 }}>
-            News
-          </Typography>
+          <Typography variant="h3">News</Typography>
         </Grid>
         <Grid item xs={12} md={12}>
           <ul style={{ padding: 0 }}>

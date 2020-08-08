@@ -33,7 +33,12 @@ export default function Home() {
 
   return (
     <Layout>
-      <Grid container spacing={3} alignItems="center" justify="space-between">
+      <Grid
+        container
+        spacing={0}
+        alignItems="flex-start"
+        justify="space-between"
+      >
         <Grid item xs={12} md={12}>
           <Typography variant="h3" color="textPrimary">
             {title}

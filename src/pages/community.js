@@ -49,7 +49,7 @@ export default function Home() {
           <Typography
             variant="h3"
             color="textPrimary"
-            style={{ marginBottom: 22 }}
+            // style={{ marginBottom: 22 }}
           >
             {title}
           </Typography>
