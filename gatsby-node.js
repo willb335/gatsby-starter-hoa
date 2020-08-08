@@ -39,6 +39,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
     items: allContentfulNews.edges,
     itemsPerPage: 1,
     pathPrefix: "/news",
-    component: path.resolve("./src/pages/news.js"),
+    component: path.resolve("./src/templates/news.js"),
   });
 };

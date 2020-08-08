@@ -54,8 +54,9 @@ export const query = graphql`
   }
 `;
 
-function News({ pageContext, data }) {
-  console.log("pageContext", pageContext, "data", data);
+function News(props) {
+  console.log("props", props);
+  // console.log("pageContext", pageContext, "data", data, loading, "loading");
   const [page, setPage] = React.useState(1);
   // const data = useStaticQuery(graphql`
   //   query($skip: Int!, $limit: Int!) {
@@ -83,7 +84,7 @@ function News({ pageContext, data }) {
   //   }
   // `);
 
-  const { previousPagePath, nextPagePath } = pageContext;
+  const { previousPagePath, nextPagePath } = props.pageContext;
 
   const handlePaginationChange = (e, value) => {
     console.log(value);
@@ -91,7 +92,7 @@ function News({ pageContext, data }) {
     setPage(value);
   };
 
-  const { articles } = data?.allContentfulNews;
+  const { articles } = props.data?.allContentfulNews;
 
   return (
     <Layout>

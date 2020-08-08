@@ -34,7 +34,7 @@ function Contact() {
     <Layout>
       <Grid
         container
-        spacing={0}
+        spacing={3}
         alignItems="flex-start"
         justify="space-evenly"
       >
