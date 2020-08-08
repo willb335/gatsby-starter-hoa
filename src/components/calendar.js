@@ -4,8 +4,44 @@ import moment from "moment";
 import Grid from "@material-ui/core/Grid";
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
+import styled from "styled-components";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
+const StyledCalendar = styled(Calendar)`
+  ${({ theme }) => `
+  & .rbc-event-content {
+    background-color: ${theme.palette.primary.main};
+    outline: ${theme.palette.primary.main};
+  }
+  & .rbc-event {
+    background-color: ${theme.palette.primary.main};
+    outline: ${theme.palette.primary.main};
+    border: ${theme.palette.primary.main};
+  }
+  & .rbc-event:focus {
+    outline: ${theme.palette.primary.main};
+  }
+  & .rbc-now {
+    background-color: ${theme.palette.primary.light};
+  }
+  & .rbc-current {
+    background-color: ${theme.palette.primary.light};
+  }
+  & .rbc-today {
+    background-color: ${theme.palette.primary.light};
+  }
+
+  & .rbc-active {
+    outline: ${theme.palette.primary.main};
+    background-color: black;
+  }
+
+  & .rbc-toolbar button {
+    outline: ${theme.palette.primary.main}
+  }
+  `}
+`;
 
 const localizer = momentLocalizer(moment);
 
@@ -27,7 +63,7 @@ function BigCalendar({ events }) {
   return (
     <Grid container justify="center" alignItems="center">
       <Grid item xs={12} m={12}>
-        <Calendar
+        <StyledCalendar
           localizer={localizer}
           events={events}
           startAccessor="start"
