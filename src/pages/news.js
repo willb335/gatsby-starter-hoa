@@ -126,8 +126,8 @@ function News({ pageContext, data }) {
             })}
           </ul>
           <Grid item xs={12}>
-            <Link to={previousPagePath}>Previous</Link>
-            <Link to={nextPagePath}>Next</Link>
+            {previousPagePath && <Link to={previousPagePath}>Previous</Link>}
+            {nextPagePath && <Link to={nextPagePath}>Next</Link>}
             {/* <Pagination
               page={page}
               onChange={handlePaginationChange}
