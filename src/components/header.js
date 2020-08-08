@@ -62,7 +62,11 @@ function Header() {
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={4}>
           <StyledHomeLink to="/">
-            <Typography variant="h4" color="textPrimary">
+            <Typography
+              variant="h4"
+              color="textPrimary"
+              style={{ padding: 10 }}
+            >
               {title}
             </Typography>
           </StyledHomeLink>
