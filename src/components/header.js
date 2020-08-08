@@ -10,17 +10,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
-const StyledListItem = styled.li`
+const ListItem = styled.li`
   list-style-type: none;
-  /* border-bottom: 1px solid #2d3748; */
-`;
-
-const StyledTitle = styled.h1`
-  margin-left: 15px;
-`;
-
-const StyledHeader = styled.header`
-  margin-top: 10px;
 `;
 
 const StyledLink = styled(Link)`
@@ -67,16 +58,14 @@ function Header() {
   const { title } = data.site.siteMetadata;
 
   return (
-    <StyledHeader>
+    <header>
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={4}>
-          <StyledTitle>
-            <StyledHomeLink to="/">
-              <Typography variant="h4" color="textPrimary">
-                {title}
-              </Typography>
-            </StyledHomeLink>
-          </StyledTitle>
+          <StyledHomeLink to="/">
+            <Typography variant="h4" color="textPrimary">
+              {title}
+            </Typography>
+          </StyledHomeLink>
         </Grid>
         <Grid item xs={1}></Grid>
         <Grid item xs={7}>
@@ -84,34 +73,34 @@ function Header() {
             <ul>
               <Grid container spacing={1} justify="space-between">
                 <Grid item xs={3}>
-                  <StyledListItem>
+                  <ListItem>
                     <StyledLink to="/community">
                       <StyledTypography variant="h6">
                         Community
                       </StyledTypography>
                     </StyledLink>
-                  </StyledListItem>
+                  </ListItem>
                 </Grid>
                 <Grid item xs={3}>
-                  <StyledListItem>
+                  <ListItem>
                     <StyledLink to="/calendar">
                       <StyledTypography variant="h6">Calendar</StyledTypography>
                     </StyledLink>
-                  </StyledListItem>
+                  </ListItem>
                 </Grid>
                 <Grid item xs={3}>
-                  <StyledListItem>
+                  <ListItem>
                     <StyledLink to="/news">
                       <StyledTypography variant="h6">News</StyledTypography>
                     </StyledLink>
-                  </StyledListItem>
+                  </ListItem>
                 </Grid>
                 <Grid item xs={3}>
-                  <StyledListItem>
+                  <ListItem>
                     <StyledLink to="/contact">
                       <StyledTypography variant="h6">Contact</StyledTypography>
                     </StyledLink>
-                  </StyledListItem>
+                  </ListItem>
                 </Grid>
               </Grid>
             </ul>
@@ -119,7 +108,7 @@ function Header() {
         </Grid>
       </Grid>
       <StyledHr></StyledHr>
-    </StyledHeader>
+    </header>
   );
 }
 
@@ -131,9 +120,8 @@ const StyledAppBar = styled(AppBar)`
   margin: 0;
 `;
 
-const StyledMobileHeader = styled.header`
+const MobileHeader = styled.header`
   margin-top: 10px;
-  margin-bottom: 15px;
 `;
 
 export function MobileHeader() {

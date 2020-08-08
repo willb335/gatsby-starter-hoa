@@ -48,7 +48,7 @@ const PageContainer = styled.div`
 `;
 
 function Layout({ children }) {
-  const matches = useMediaQuery("(max-width:960px)");
+  const mobile = useMediaQuery("(max-width:960px)");
 
   return (
     <StylesProvider injectFirst>
@@ -56,7 +56,7 @@ function Layout({ children }) {
         <StyledThemeProvider theme={theme}>
           <CssBaseline />
           <PageContainer>
-            {matches ? <MobileHeader /> : <Header />}
+            {mobile ? <MobileHeader /> : <Header />}
             <ContentContainer> {children}</ContentContainer>
             <Footer />
           </PageContainer>
