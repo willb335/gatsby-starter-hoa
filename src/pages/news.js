@@ -66,8 +66,8 @@ function News() {
             {articles.map(({ article }) => {
               return (
                 <StyledArticle key={article.id}>
-                  <Grid container spacing={3}>
-                    <Grid item xs={12} md={3}>
+                  <Grid container spacing={0}>
+                    <Grid item xs={12} md={12}>
                       <StyledLink to={`/news/${article.slug}`}>
                         <Typography variant="h4">{article.title}</Typography>
                       </StyledLink>
@@ -83,7 +83,7 @@ function News() {
                       </StyledTypography>
                     </Grid>
 
-                    <Grid
+                    {/* <Grid
                       item
                       xs={12}
                       md={12}
@@ -99,7 +99,7 @@ function News() {
                           alt={article.mainImage.description}
                         ></Img>
                       </Paper>
-                    </Grid>
+                    </Grid> */}
                   </Grid>
                 </StyledArticle>
               );
