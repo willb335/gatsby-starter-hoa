@@ -9,14 +9,6 @@ import Paper from "@material-ui/core/Paper";
 
 import Layout from "../components/layout";
 
-const StyledImage = styled(Img)`
-  /* width: 100%; */
-`;
-
-const StyledPaper = styled(Paper)`
-  /* width: 100%; */
-`;
-
 export default function Home() {
   const data = useStaticQuery(graphql`
     query {
@@ -44,7 +36,7 @@ export default function Home() {
     <Layout>
       <Grid container spacing={3} alignItems="center" justify="space-between">
         <Grid item xs={12} md={12}>
-          <Typography variant="h2" color="textPrimary">
+          <Typography variant="h3" color="textPrimary">
             {title}
           </Typography>
         </Grid>
@@ -55,13 +47,9 @@ export default function Home() {
         </Grid>
         <Grid item xs={false} md={1}></Grid>
         <Grid item xs={12} md={6}>
-          <StyledPaper elevation={5}>
-            <StyledImage
-              fluid={fluid}
-              fadeIn
-              alt={data.contentfulAsset.title}
-            ></StyledImage>
-          </StyledPaper>
+          <Paper elevation={5}>
+            <Img fluid={fluid} fadeIn alt={data.contentfulAsset.title}></Img>
+          </Paper>
         </Grid>
       </Grid>
     </Layout>

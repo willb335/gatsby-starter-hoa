@@ -15,6 +15,8 @@ const StyledFooter = styled.footer`
   position: absolute;
   bottom: 0;
   height: 5rem;
+  margin-top: 5vh;
+  /* padding-top: 5rem; */
 
   @media (min-width: 1366px) {
     width: calc(1366px - 10vw);
