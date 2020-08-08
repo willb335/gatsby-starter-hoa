@@ -15,6 +15,7 @@ module.exports = {
     year: new Date().getFullYear(),
   },
   plugins: [
+    `gatsby-awesome-pagination`,
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {

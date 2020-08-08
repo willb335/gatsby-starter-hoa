@@ -1,4 +1,5 @@
 const path = require("path");
+const { paginate } = require("gatsby-awesome-pagination");
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -18,11 +19,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  console.log("data", JSON.stringify(res.data));
   const { allContentfulNews } = res.data;
 
+  console.log("data", JSON.stringify(allContentfulNews.edges));
+
   allContentfulNews.edges.forEach(edge => {
-    console.log("id", JSON.stringify(edge.node.mainImage.contentful_id));
     createPage({
       component: articleTemplate,
       path: `/news/${edge.node.slug}`,
@@ -31,5 +32,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
         id: edge.node.mainImage.contentful_id,
       },
     });
+  });
+
+  paginate({
+    createPage,
+    items: allContentfulNews.edges,
+    itemsPerPage: 1,
+    pathPrefix: "/news",
+    component: path.resolve("./src/pages/news.js"),
   });
 };

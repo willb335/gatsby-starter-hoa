@@ -28,33 +28,62 @@ const StyledLink = styled(Link)`
   }`}
 `;
 
-function News() {
-  const [page, setPage] = React.useState(1);
-  const data = useStaticQuery(graphql`
-    query articles($skip: Int! = 0) {
-      allContentfulNews(
-        sort: { fields: datePublished, order: DESC }
-        limit: 5
-        skip: $skip
-      ) {
-        articles: edges {
-          article: node {
-            title
-            slug
-            datePublished(formatString: "MMMM Do, YYYY")
-            author
-            id
-            mainImage {
-              description
-              fixed(width: 150, height: 150, quality: 100) {
-                ...GatsbyContentfulFixed_withWebp
-              }
+export const query = graphql`
+  query($skip: Int!, $limit: Int!) {
+    allContentfulNews(
+      sort: { fields: datePublished, order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
+      articles: edges {
+        article: node {
+          title
+          slug
+          datePublished(formatString: "MMMM Do, YYYY")
+          author
+          id
+          mainImage {
+            description
+            fixed(width: 150, height: 150, quality: 100) {
+              ...GatsbyContentfulFixed_withWebp
             }
           }
         }
       }
     }
-  `);
+  }
+`;
+
+function News({ pageContext, data }) {
+  console.log("pageContext", pageContext, "data", data);
+  const [page, setPage] = React.useState(1);
+  // const data = useStaticQuery(graphql`
+  //   query($skip: Int!, $limit: Int!) {
+  //     allContentfulNews(
+  //       sort: { fields: datePublished, order: DESC }
+  //       limit: $limit
+  //       skip: $skip
+  //     ) {
+  //       articles: edges {
+  //         article: node {
+  //           title
+  //           slug
+  //           datePublished(formatString: "MMMM Do, YYYY")
+  //           author
+  //           id
+  //           mainImage {
+  //             description
+  //             fixed(width: 150, height: 150, quality: 100) {
+  //               ...GatsbyContentfulFixed_withWebp
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
+
+  const { previousPagePath, nextPagePath } = pageContext;
 
   const handlePaginationChange = (e, value) => {
     console.log(value);
@@ -62,7 +91,7 @@ function News() {
     setPage(value);
   };
 
-  const { articles } = data.allContentfulNews;
+  const { articles } = data?.allContentfulNews;
 
   return (
     <Layout>
@@ -97,11 +126,13 @@ function News() {
             })}
           </ul>
           <Grid item xs={12}>
-            <Pagination
+            <Link to={previousPagePath}>Previous</Link>
+            <Link to={nextPagePath}>Next</Link>
+            {/* <Pagination
               page={page}
               onChange={handlePaginationChange}
               count={Math.ceil(articles?.length / 5)}
-            ></Pagination>
+            ></Pagination> */}
           </Grid>
         </Grid>
       </Grid>
