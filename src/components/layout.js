@@ -31,11 +31,20 @@ const theme = createMuiTheme({
 
 const ContentContainer = styled.div`
   padding-bottom: 5rem;
+  margin: 5vh 0 0 0;
 `;
 
 const PageContainer = styled.div`
   position: relative;
   min-height: 100vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  max-width: 1366px;
+
+  @media (min-width: 1366px) {
+    width: 1366px;
+    margin: 0 auto;
+  }
 `;
 
 function Layout({ children }) {

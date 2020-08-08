@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 
 const useStyles = makeStyles(theme => ({
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: 0,
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   form: {
     width: "100%", // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
+    // marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
@@ -33,7 +33,7 @@ function ContactForm() {
   const { register, handleSubmit, control } = useForm();
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="xs" style={{ padding: 0 }}>
       <CssBaseline />
       <div className={classes.paper}>
         <Typography component="h1" variant="h5">

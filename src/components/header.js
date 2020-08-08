@@ -20,7 +20,6 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledHeader = styled.header`
-  margin-bottom: 30px;
   margin-top: 10px;
 `;
 
@@ -52,8 +51,7 @@ const StyledTypography = styled(Typography)`
 const StyledHr = styled.hr`
   ${({ theme }) => `
     border: 1px solid ${theme.palette.grey[300]};
-    margin-left: 3vw;
-    margin-right: 3vw;`}
+    `}
 `;
 
 function Header() {
@@ -70,12 +68,7 @@ function Header() {
 
   return (
     <StyledHeader>
-      <Grid
-        container
-        spacing={3}
-        alignItems="center"
-        style={{ paddingLeft: "3vw", paddingRight: "3vw" }}
-      >
+      <Grid container spacing={3} alignItems="center">
         <Grid item xs={4}>
           <StyledTitle>
             <StyledHomeLink to="/">

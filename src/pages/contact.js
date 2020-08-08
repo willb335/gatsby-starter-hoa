@@ -1,7 +1,9 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { useForm } from "react-hook-form";
+import Typography from "@material-ui/core/Typography";
+import styled from "styled-components";
+import Grid from "@material-ui/core/Grid";
 
 import Layout from "../components/layout";
 
@@ -19,17 +21,27 @@ function Contact() {
     }
   `);
 
-  console.log("data", data);
-
   const { title } = data.contentfulContact;
   const { json } = data.contentfulContact.contactInformation;
-  console.log(title);
 
   return (
     <Layout>
-      <div>{title}</div>
-      <div>{documentToReactComponents(json)}</div>
-      <ContactForm />
+      <Grid
+        container
+        spacing={3}
+        alignItems="flex-start"
+        justify="space-evenly"
+      >
+        <Grid item xs={12} md={6}>
+          <Typography variant="h3">{title}</Typography>
+          <Typography component="div">
+            {documentToReactComponents(json)}
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <ContactForm />
+        </Grid>
+      </Grid>
     </Layout>
   );
 }

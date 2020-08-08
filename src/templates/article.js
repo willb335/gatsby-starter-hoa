@@ -9,6 +9,12 @@ import Paper from "@material-ui/core/Paper";
 
 import Layout from "../components/layout";
 
+const DatePublished = styled(Typography)`
+  ${({ theme }) => `
+  color: ${theme.palette.text.secondary};
+  `}
+`;
+
 export const query = graphql`
   query($slug: String!, $id: String!) {
     contentfulNews(slug: { eq: $slug }) {
@@ -34,23 +40,18 @@ function Article(props) {
 
   return (
     <Layout>
-      <Grid
-        container
-        spacing={0}
-        alignItems="center"
-        justify="center"
-        style={{
-          paddingLeft: "3vw",
-          paddingRight: "3vw",
-        }}
-      >
-        <Grid item xs={12} md={6} style={{ padding: 0 }}>
-          <h1>{contentfulNews.title}</h1>
-          <p>{contentfulNews.datePublished}</p>
+      <Grid container spacing={0} alignItems="center" justify="center">
+        <Grid item xs={12} md={6}>
+          <Typography variant="h3">{contentfulNews.title}</Typography>
+          <DatePublished variant="body1">
+            {contentfulNews.datePublished}
+          </DatePublished>
         </Grid>
         <Grid item xs={12} md={6}></Grid>
         <Grid item xs={12} md={6}>
-          <Img fluid={contentfulAsset.fluid} alt={contentfulAsset.title} />
+          <Paper elevation={5}>
+            <Img fluid={contentfulAsset.fluid} alt={contentfulAsset.title} />
+          </Paper>
         </Grid>
         <Grid item xs={12} md={12}>
           {documentToReactComponents(props.data.contentfulNews.body.json)}

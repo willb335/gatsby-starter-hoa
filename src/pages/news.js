@@ -56,13 +56,8 @@ function News() {
 
   return (
     <Layout>
-      <Grid
-        container
-        spacing={3}
-        alignItems="center"
-        style={{ paddingLeft: "3vw", paddingRight: "3vw" }}
-      >
-        <Grid item xs={12} md={12} style={{ marginTop: "10vh" }}>
+      <Grid container spacing={3} alignItems="center">
+        <Grid item xs={12} md={12}>
           <Typography variant="h3">News</Typography>
         </Grid>
         <Grid item xs={12} md={12}>
@@ -91,7 +86,10 @@ function News() {
                               left: matches ? 0 : "35vw",
                             }}
                           >
-                            <Paper style={{ width: 150, height: 150 }}>
+                            <Paper
+                              elevation={5}
+                              style={{ width: 150, height: 150 }}
+                            >
                               <Img
                                 fixed={article.mainImage.fixed}
                                 fadeIn
