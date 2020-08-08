@@ -72,12 +72,12 @@ function News() {
                         <Typography variant="h4">{article.title}</Typography>
                       </StyledLink>
                     </Grid>
-                    <Grid item item xs={12} md={12}>
+                    <Grid item xs={12} md={12}>
                       <StyledTypography variant="body1">
                         {article.author}
                       </StyledTypography>
                     </Grid>
-                    <Grid item item xs={12} md={12}>
+                    <Grid item xs={12} md={12}>
                       <StyledTypography variant="body1">
                         {article.datePublished}
                       </StyledTypography>

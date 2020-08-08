@@ -1,46 +1,37 @@
 import React from "react";
-import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useForm } from "react-hook-form";
+import styled from "styled-components";
 
-const useStyles = makeStyles(theme => ({
-  paper: {
-    marginTop: 0,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: "100%", // Fix IE 11 issue.
-    // marginTop: theme.spacing(1),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
+const FlexContainer = styled.div`
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const StyledButton = styled(Button)`
+  ${({ theme }) => `
+    margin: ${theme.spacing(3, 0, 2)};
+`}
+`;
 
 function ContactForm() {
-  const classes = useStyles();
-  const { register, handleSubmit, control } = useForm();
+  const { register, handleSubmit } = useForm();
 
   return (
     <Container component="main" maxWidth="xs" style={{ padding: 0 }}>
       <CssBaseline />
-      <div className={classes.paper}>
+      <FlexContainer>
         <Typography component="h1" variant="h5">
           Contact Us
         </Typography>
         <form
-          className={classes.form}
+          style={{ width: "100%" }}
           noValidate
           onSubmit={handleSubmit(data => alert(JSON.stringify(data)))}
         >
@@ -66,7 +57,6 @@ function ContactForm() {
             label="Email Address"
             name="email"
             autoComplete="email"
-            autoFocus
           />
           <TextField
             variant="outlined"
@@ -78,22 +68,20 @@ function ContactForm() {
             type="text"
             label="Message"
             name="message"
-            autoFocus
             multiline
             rows={10}
           />
 
-          <Button
+          <StyledButton
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
           >
             Submit
-          </Button>
+          </StyledButton>
         </form>
-      </div>
+      </FlexContainer>
     </Container>
   );
 }

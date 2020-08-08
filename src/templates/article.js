@@ -40,7 +40,7 @@ function Article(props) {
 
   return (
     <Layout>
-      <Grid container spacing={0} alignItems="center" justify="center">
+      <Grid container spacing={3} alignItems="center" justify="center">
         <Grid item xs={12} md={6}>
           <Typography variant="h3">{contentfulNews.title}</Typography>
           <DatePublished variant="body1">
@@ -54,7 +54,9 @@ function Article(props) {
           </Paper>
         </Grid>
         <Grid item xs={12} md={12}>
-          {documentToReactComponents(props.data.contentfulNews.body.json)}
+          <Typography component="div">
+            {documentToReactComponents(props.data.contentfulNews.body.json)}
+          </Typography>
         </Grid>
       </Grid>
     </Layout>

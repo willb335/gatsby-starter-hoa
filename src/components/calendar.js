@@ -26,7 +26,7 @@ function BigCalendar({ events }) {
   const id = open ? "simple-popover" : undefined;
   return (
     <Grid container justify="center" alignItems="center">
-      <Grid item m xs={12} m={12}>
+      <Grid item xs={12} m={12}>
         <Calendar
           localizer={localizer}
           events={events}
