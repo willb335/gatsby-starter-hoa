@@ -54,8 +54,6 @@ function News() {
 
   const { articles } = data.allContentfulNews;
 
-  console.log(matches);
-
   return (
     <Layout>
       <Grid
