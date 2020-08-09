@@ -93,7 +93,7 @@ function News({ pageContext, data, location }) {
   return (
     <Layout>
       <Seo title="HOA News" description="HOA news articles" />
-      <Grid container spacing={3} alignItems="flex-start">
+      <Grid container spacing={0} alignItems="flex-start">
         <Grid item xs={12} md={12}>
           <Typography variant="h3">News</Typography>
         </Grid>
@@ -140,8 +140,8 @@ function News({ pageContext, data, location }) {
           </Grid>
         </Grid>
         <Grid item xs={false} md={1}></Grid>
-        <Grid item xs={12} md={6} style={{ height: "100%" }}>
-          <Paper elevation={5} style={{ height: "100%" }}>
+        <Grid item xs={12} md={6}>
+          <Paper elevation={5}>
             <Img fluid={fluid} fadeIn alt={description}></Img>
           </Paper>
         </Grid>
