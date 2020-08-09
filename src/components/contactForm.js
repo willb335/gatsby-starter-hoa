@@ -31,10 +31,16 @@ function ContactForm() {
           Contact Us
         </Typography>
         <form
+          method="post"
+          netlify-honeypot="bot-field"
+          data-netlify="true"
+          name="contact"
           style={{ width: "100%" }}
           noValidate
           onSubmit={handleSubmit(data => alert(JSON.stringify(data)))}
         >
+          <input type="hidden" name="bot-field" />
+          <input type="hidden" name="form-name" value="contact" />
           <TextField
             variant="outlined"
             margin="normal"
