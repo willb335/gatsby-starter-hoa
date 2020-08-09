@@ -5,6 +5,8 @@ import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
 import Pagination from "@material-ui/lab/Pagination";
 import PaginationItem from "@material-ui/lab/PaginationItem";
+import Img from "gatsby-image";
+import Paper from "@material-ui/core/Paper";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -43,13 +45,15 @@ export const query = graphql`
           datePublished(formatString: "MMMM Do, YYYY")
           author
           id
-          mainImage {
-            description
-            fixed(width: 150, height: 150, quality: 100) {
-              ...GatsbyContentfulFixed_withWebp
-            }
-          }
         }
+      }
+    }
+
+    contentfulAsset(contentful_id: { eq: "3CN5UNM6EX1lIAdpmh8DIJ" }) {
+      id
+      description
+      fluid {
+        ...GatsbyContentfulFluid_withWebp
       }
     }
   }
@@ -83,16 +87,17 @@ function News({ pageContext, data, location }) {
     }
   };
 
-  const { articles } = data?.allContentfulNews;
+  const { articles } = data.allContentfulNews;
+  const { fluid, description } = data.contentfulAsset;
 
   return (
     <Layout>
       <Seo title="HOA News" description="HOA news articles" />
-      <Grid container spacing={0} alignItems="center">
+      <Grid container spacing={0} alignItems="flex-start">
         <Grid item xs={12} md={12}>
           <Typography variant="h3">News</Typography>
         </Grid>
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12} md={5}>
           <ul style={{ padding: 0 }}>
             {articles.map(({ article }) => {
               return (
@@ -133,6 +138,12 @@ function News({ pageContext, data, location }) {
               count={numberOfPages}
             ></Pagination>
           </Grid>
+        </Grid>
+        <Grid item xs={false} md={1}></Grid>
+        <Grid item xs={12} md={6}>
+          <Paper elevation={5}>
+            <Img fluid={fluid} fadeIn alt={description}></Img>
+          </Paper>
         </Grid>
       </Grid>
     </Layout>
