@@ -37,7 +37,7 @@ function ContactForm() {
           name="contact"
           style={{ width: "100%" }}
           noValidate
-          onSubmit={handleSubmit(data => alert(JSON.stringify(data)))}
+          // onSubmit={handleSubmit(data => alert(JSON.stringify(data)))}
         >
           <input type="hidden" name="bot-field" />
           <input type="hidden" name="form-name" value="contact" />
