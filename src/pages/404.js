@@ -3,6 +3,8 @@ import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Layout from "../components/layout";
 
+import Seo from "../components/seo";
+
 function NotFound() {
   return (
     <Layout>
