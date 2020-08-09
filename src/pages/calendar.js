@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import moment from "moment";
+import Paper from "@material-ui/core/Paper";
 
 import Layout from "../components/layout";
 import BigCalendar from "../components/calendar";
@@ -50,7 +51,9 @@ function Calendar() {
         title="HOA Calendar"
         description="See a calendar of upcoming events"
       />
-      <BigCalendar events={events} />
+      <Paper elevation={5}>
+        <BigCalendar events={events} />
+      </Paper>
     </Layout>
   );
 }

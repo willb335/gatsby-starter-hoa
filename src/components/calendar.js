@@ -88,7 +88,7 @@ function BigCalendar({ events }) {
             style={{
               padding: 25,
               textAlign: "center",
-              width: 500,
+              maxWidth: 500,
             }}
           >
             <Grid item xs={12} m={6}>

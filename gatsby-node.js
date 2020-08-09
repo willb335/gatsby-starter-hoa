@@ -21,8 +21,6 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   const { allContentfulArticles } = res.data;
 
-  console.log("data", JSON.stringify(allContentfulArticles.edges));
-
   allContentfulArticles.edges.forEach(edge => {
     createPage({
       component: articleTemplate,
