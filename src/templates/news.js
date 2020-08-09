@@ -7,6 +7,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import PaginationItem from "@material-ui/lab/PaginationItem";
 import Img from "gatsby-image";
 import Paper from "@material-ui/core/Paper";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -59,7 +60,9 @@ export const query = graphql`
   }
 `;
 
-function News({ pageContext, data, location }) {
+function News({ pageContext, data }) {
+  const mobile = useMediaQuery("(max-width:960px)");
+
   const {
     previousPagePath,
     nextPagePath,
@@ -137,8 +140,13 @@ function News({ pageContext, data, location }) {
           </Grid>
         </Grid>
         <Grid item xs={false} md={1}></Grid>
-        <Grid item xs={12} md={6} style={{ marginBottom: 30 }}>
-          <Paper elevation={5}>
+        <Grid
+          item
+          xs={12}
+          md={6}
+          style={{ marginBottom: 30, marginTop: mobile && 50 }}
+        >
+          <Paper elevation={20}>
             <Img fluid={fluid} fadeIn alt={description}></Img>
           </Paper>
         </Grid>

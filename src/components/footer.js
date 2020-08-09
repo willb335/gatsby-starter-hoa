@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 const StyledHr = styled.hr`
   ${({ theme }) => `
     border: 1px solid ${theme.palette.grey[300]};
+    margin: 0;
     `}
 `;
 
@@ -14,9 +15,7 @@ const StyledFooter = styled.footer`
   width: calc(100vw - 10vw);
   position: absolute;
   bottom: 0;
-  height: 5rem;
-  margin-top: 400px;
-  /* padding-top: 5rem; */
+  height: 8rem;
 
   @media (min-width: 1366px) {
     width: calc(1366px - 10vw);
@@ -39,15 +38,20 @@ function Footer() {
 
   return (
     <StyledFooter>
-      <StyledHr></StyledHr>
       <Grid
         container
-        spacing={3}
+        spacing={0}
         alignItems="center"
-        style={{ height: "100%" }}
+        style={{ height: "100%", marginTop: 50 }}
       >
+        {/* <Grid item xs={12}>
+        </Grid> */}
+
         <Grid item xs={12}>
+          <StyledHr></StyledHr>
+
           <Typography
+            style={{ marginTop: "2rem" }}
             variant="body1"
             color="textPrimary"
           >{`© ${title} ${year}`}</Typography>
