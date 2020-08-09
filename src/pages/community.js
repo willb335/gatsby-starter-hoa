@@ -21,21 +21,23 @@ export default function Home() {
   const mobile = useMediaQuery("(max-width:960px)");
   const data = useStaticQuery(graphql`
     query {
-      allFile(filter: { relativeDirectory: { eq: "carousel" } }) {
+      allContentfulGallery {
         edges {
           node {
             id
-            childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
-              }
+            description
+            photo {
               fixed(width: 700, height: 700, quality: 100) {
-                ...GatsbyImageSharpFixed
+                ...GatsbyContentfulFixed_withWebp
+              }
+              fluid {
+                ...GatsbyContentfulFluid_withWebp
               }
             }
           }
         }
       }
+
       contentfulCommunity(contentful_id: { eq: "6SeHFE2r68J3Bvji6j746h" }) {
         id
         body {
@@ -46,7 +48,7 @@ export default function Home() {
     }
   `);
 
-  const photos = data.allFile.edges;
+  const photos = data?.allContentfulGallery?.edges;
   const { title, body } = data.contentfulCommunity;
 
   return (
@@ -70,46 +72,38 @@ export default function Home() {
         <Grid item xs={false} md={1}></Grid>
         <StyledGrid item xs={12} md={6}>
           <Carousel>
-            {photos.map((photo, i) => {
-              const { fluid, fixed } = photo.node.childImageSharp;
-              const { id } = photo.node;
-              return mobile ? (
-                <Paper
-                  key={id}
-                  elevation={5}
-                  style={{
-                    width: "100%",
-                    height: "100",
-                  }}
-                >
-                  <Img
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                    }}
-                    fluid={fluid}
-                    fadeIn
-                    alt="i"
-                  ></Img>
-                </Paper>
-              ) : (
-                <Paper
-                  key={id}
-                  elevation={5}
-                  style={{
-                    width: "100%",
-                    height: 700,
-                  }}
-                >
-                  <Img
-                    fixed={fixed}
-                    fadeIn
-                    alt="i"
+            {phtos &&
+              photos.map(({ node }, i) => {
+                const { fluid, fixed } = node.photo;
+                const { description, id } = node;
+                return mobile ? (
+                  <Paper
+                    key={id}
+                    elevation={5}
+                    style={{ width: "100%", height: "100" }}
+                  >
+                    <Img
+                      style={{ width: "100%", height: "100%" }}
+                      fluid={fluid}
+                      fadeIn
+                      alt={description}
+                    ></Img>
+                  </Paper>
+                ) : (
+                  <Paper
+                    key={id}
+                    elevation={5}
                     style={{ width: "100%", height: 700 }}
-                  ></Img>
-                </Paper>
-              );
-            })}
+                  >
+                    <Img
+                      fixed={fixed}
+                      fadeIn
+                      alt={node.description}
+                      style={{ width: "100%", height: 700 }}
+                    ></Img>
+                  </Paper>
+                );
+              })}
           </Carousel>
         </StyledGrid>
       </Grid>

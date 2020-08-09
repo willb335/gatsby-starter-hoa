@@ -13,7 +13,7 @@ module.exports = {
     description: "A template website for Home Owner Associations",
     author: "William Bashelor",
     year: new Date().getFullYear(),
-    image: "./src/images/ansgar-scheffold-4N4W2foPJhE-unsplash.jpg",
+    image: "./src/images/carousel/kristine-tanne-b8gOvy2kFVA-unsplash.jpg",
   },
   plugins: [
     `gatsby-awesome-pagination`,
