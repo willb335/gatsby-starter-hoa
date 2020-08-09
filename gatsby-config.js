@@ -17,6 +17,7 @@ module.exports = {
     url: "",
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-awesome-pagination`,
     {

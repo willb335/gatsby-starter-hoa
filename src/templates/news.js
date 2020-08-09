@@ -93,7 +93,7 @@ function News({ pageContext, data, location }) {
   return (
     <Layout>
       <Seo title="HOA News" description="HOA news articles" />
-      <Grid container spacing={0} alignItems="flex-start">
+      <Grid container spacing={3} alignItems="flex-start">
         <Grid item xs={12} md={12}>
           <Typography variant="h3">News</Typography>
         </Grid>
