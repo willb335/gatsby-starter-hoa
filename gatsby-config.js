@@ -17,6 +17,7 @@ module.exports = {
     url: "https://frosty-torvalds-822eb0.netlify.app",
   },
   plugins: [
+    `gatsby-theme-material-ui`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-awesome-pagination`,

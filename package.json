@@ -30,6 +30,7 @@
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-source-contentful": "^2.3.34",
     "gatsby-source-filesystem": "^2.3.23",
+    "gatsby-theme-material-ui": "^1.0.13",
     "gatsby-transformer-sharp": "^2.5.12",
     "moment": "^2.27.0",
     "react": "^16.12.0",
