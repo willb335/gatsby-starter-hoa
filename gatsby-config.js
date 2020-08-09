@@ -14,7 +14,7 @@ module.exports = {
     author: "Cicero",
     year: new Date().getFullYear(),
     image: "./src/images/kristine-tanne-b8gOvy2kFVA-unsplash.jpg",
-    url: "",
+    url: "https://frosty-torvalds-822eb0.netlify.app",
   },
   plugins: [
     `gatsby-plugin-netlify`,
