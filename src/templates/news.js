@@ -137,7 +137,7 @@ function News({ pageContext, data, location }) {
           </Grid>
         </Grid>
         <Grid item xs={false} md={1}></Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} style={{ marginBottom: 30 }}>
           <Paper elevation={5}>
             <Img fluid={fluid} fadeIn alt={description}></Img>
           </Paper>
