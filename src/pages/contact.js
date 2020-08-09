@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
 import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 import ContactForm from "../components/contactForm";
 
@@ -32,6 +33,7 @@ function Contact() {
 
   return (
     <Layout>
+      <Seo title={"Contact Us"} description={"Get in touch with our HOA"} />
       <Grid
         container
         spacing={3}

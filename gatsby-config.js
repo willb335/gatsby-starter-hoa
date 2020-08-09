@@ -13,7 +13,7 @@ module.exports = {
     description: "A template website for Home Owner Associations",
     author: "Cicero",
     year: new Date().getFullYear(),
-    image: "./src/images/carousel/kristine-tanne-b8gOvy2kFVA-unsplash.jpg",
+    image: "./src/images/kristine-tanne-b8gOvy2kFVA-unsplash.jpg",
     url: "",
   },
   plugins: [
