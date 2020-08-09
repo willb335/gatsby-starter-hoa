@@ -10,6 +10,7 @@ import styled from "styled-components";
 
 import Layout from "../components/layout";
 import Carousel from "../components/carousel";
+import Seo from "../components/seo";
 
 const StyledGrid = styled(Grid)`
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
@@ -53,6 +54,10 @@ export default function Home() {
 
   return (
     <Layout>
+      <Seo
+        title="HOA Community"
+        description="A place where the Home Owners Association shares information about the community"
+      />
       <Grid
         container
         spacing={0}
@@ -60,19 +65,19 @@ export default function Home() {
         justify="space-between"
       >
         <Grid item xs={12} md={12}>
-          <Typography variant="h3" color="textPrimary">
+          <Typography variant="h3" color="primary">
             {title}
           </Typography>
         </Grid>
         <Grid item xs={12} md={5}>
-          <Typography component="div" color="textSecondary">
+          <Typography component="div" color="textPrimary">
             {documentToReactComponents(body.json)}
           </Typography>
         </Grid>
         <Grid item xs={false} md={1}></Grid>
         <StyledGrid item xs={12} md={6}>
           <Carousel>
-            {phtos &&
+            {photos &&
               photos.map(({ node }, i) => {
                 const { fluid, fixed } = node.photo;
                 const { description, id } = node;

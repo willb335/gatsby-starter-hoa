@@ -62,11 +62,7 @@ function Header() {
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={4}>
           <StyledHomeLink to="/">
-            <Typography
-              variant="h4"
-              color="textPrimary"
-              style={{ padding: 10 }}
-            >
+            <Typography variant="h4" color="primary" style={{ padding: 10 }}>
               {title}
             </Typography>
           </StyledHomeLink>
@@ -87,15 +83,15 @@ function Header() {
                 </Grid>
                 <Grid item xs={3}>
                   <ListItem>
-                    <StyledLink to="/calendar">
-                      <StyledTypography variant="h6">Calendar</StyledTypography>
+                    <StyledLink to="/news">
+                      <StyledTypography variant="h6">News</StyledTypography>
                     </StyledLink>
                   </ListItem>
                 </Grid>
                 <Grid item xs={3}>
                   <ListItem>
-                    <StyledLink to="/news">
-                      <StyledTypography variant="h6">News</StyledTypography>
+                    <StyledLink to="/calendar">
+                      <StyledTypography variant="h6">Calendar</StyledTypography>
                     </StyledLink>
                   </ListItem>
                 </Grid>

@@ -4,6 +4,7 @@ import moment from "moment";
 
 import Layout from "../components/layout";
 import BigCalendar from "../components/calendar";
+import Seo from "../components/seo";
 
 function Calendar() {
   const data = useStaticQuery(graphql`
@@ -45,6 +46,10 @@ function Calendar() {
 
   return (
     <Layout>
+      <Seo
+        title="HOA Calendar"
+        description="See a calendar of upcoming events"
+      />
       <BigCalendar events={events} />
     </Layout>
   );

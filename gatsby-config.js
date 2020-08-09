@@ -11,11 +11,13 @@ module.exports = {
   siteMetadata: {
     title: "Cicero Home Owners Association",
     description: "A template website for Home Owner Associations",
-    author: "William Bashelor",
+    author: "Cicero",
     year: new Date().getFullYear(),
     image: "./src/images/carousel/kristine-tanne-b8gOvy2kFVA-unsplash.jpg",
+    url: "",
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     `gatsby-awesome-pagination`,
     {
       resolve: `gatsby-plugin-styled-components`,

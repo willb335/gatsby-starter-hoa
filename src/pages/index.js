@@ -7,6 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 
 import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 export default function Home() {
   const data = useStaticQuery(graphql`
@@ -33,6 +34,7 @@ export default function Home() {
 
   return (
     <Layout>
+      <Seo title="Welcome" description="A Home Owners Association Template" />
       <Grid
         container
         spacing={0}

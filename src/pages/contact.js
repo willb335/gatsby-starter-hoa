@@ -39,8 +39,10 @@ function Contact() {
         justify="space-evenly"
       >
         <Grid item xs={12} md={6}>
-          <Typography variant="h3">{title}</Typography>
-          <StyledTypography component="div">
+          <Typography variant="h3" color="primary">
+            {title}
+          </Typography>
+          <StyledTypography component="div" color="textPrimary">
             {documentToReactComponents(json)}
           </StyledTypography>
         </Grid>

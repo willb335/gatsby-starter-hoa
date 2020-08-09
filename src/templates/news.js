@@ -7,6 +7,7 @@ import Pagination from "@material-ui/lab/Pagination";
 import PaginationItem from "@material-ui/lab/PaginationItem";
 
 import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const StyledArticle = styled.li`
   list-style-type: none;
@@ -86,6 +87,7 @@ function News({ pageContext, data, location }) {
 
   return (
     <Layout>
+      <Seo title="HOA News" description="HOA news articles" />
       <Grid container spacing={0} alignItems="center">
         <Grid item xs={12} md={12}>
           <Typography variant="h3">News</Typography>

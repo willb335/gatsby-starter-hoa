@@ -8,6 +8,7 @@ import styled from "styled-components";
 import Paper from "@material-ui/core/Paper";
 
 import Layout from "../components/layout";
+import Seo from "../components/seo";
 
 const DatePublished = styled(Typography)`
   ${({ theme }) => `
@@ -23,6 +24,7 @@ export const query = graphql`
       body {
         json
       }
+      author
     }
 
     contentfulAsset(contentful_id: { eq: $id }) {
@@ -40,10 +42,17 @@ function Article(props) {
 
   return (
     <Layout>
+      <Seo
+        title={contentfulNews.title}
+        description={contentfulNews.title}
+        author={contentfulNews.author}
+      />
       <Grid container spacing={3} alignItems="center" justify="center">
         <Grid item xs={12} md={6}>
-          <Typography variant="h3">{contentfulNews.title}</Typography>
-          <DatePublished variant="body1">
+          <Typography variant="h3" color="primary">
+            {contentfulNews.title}
+          </Typography>
+          <DatePublished variant="body1" color="textSecondary">
             {contentfulNews.datePublished}
           </DatePublished>
         </Grid>
@@ -54,7 +63,7 @@ function Article(props) {
           </Paper>
         </Grid>
         <Grid item xs={12} md={12}>
-          <Typography component="div">
+          <Typography component="div" color="textPrimary">
             {documentToReactComponents(props.data.contentfulNews.body.json)}
           </Typography>
         </Grid>

@@ -27,7 +27,7 @@ function ContactForm() {
     <Container component="main" maxWidth="xs" style={{ padding: 0 }}>
       <CssBaseline />
       <FlexContainer>
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h5" color="primary">
           Contact Us
         </Typography>
         <form
