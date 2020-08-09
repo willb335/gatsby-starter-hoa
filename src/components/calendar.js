@@ -85,7 +85,11 @@ function BigCalendar({ events }) {
             container
             justify="center"
             alignItems="center"
-            style={{ padding: 20, textAlign: "center" }}
+            style={{
+              padding: 25,
+              textAlign: "center",
+              width: 500,
+            }}
           >
             <Grid item xs={12} m={6}>
               <Typography variant="h6">{event.title}</Typography>
