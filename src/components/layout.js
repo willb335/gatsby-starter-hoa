@@ -1,10 +1,6 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import {
-  ThemeProvider,
-  createMuiTheme,
-  StylesProvider,
-} from "@material-ui/core/styles";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import styled, {
   ThemeProvider as StyledThemeProvider,
 } from "styled-components";
@@ -52,18 +48,16 @@ function Layout({ children }) {
   const mobile = useMediaQuery("(max-width:960px)");
 
   return (
-    <StylesProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <StyledThemeProvider theme={theme}>
-          <CssBaseline />
-          <PageContainer>
-            {mobile ? <MobileHeader /> : <Header />}
-            <ContentContainer> {children}</ContentContainer>
-            <Footer />
-          </PageContainer>
-        </StyledThemeProvider>
-      </ThemeProvider>
-    </StylesProvider>
+    <ThemeProvider theme={theme}>
+      <StyledThemeProvider theme={theme}>
+        <CssBaseline />
+        <PageContainer>
+          {mobile ? <MobileHeader /> : <Header />}
+          <ContentContainer> {children}</ContentContainer>
+          <Footer />
+        </PageContainer>
+      </StyledThemeProvider>
+    </ThemeProvider>
   );
 }
 

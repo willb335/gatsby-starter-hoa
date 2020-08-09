@@ -60,9 +60,6 @@ export const query = graphql`
 `;
 
 function News({ pageContext, data, location }) {
-  console.log("pageContext", pageContext);
-  console.log("location", location);
-
   const {
     previousPagePath,
     nextPagePath,
@@ -95,7 +92,9 @@ function News({ pageContext, data, location }) {
       <Seo title="HOA News" description="HOA news articles" />
       <Grid container spacing={0} alignItems="flex-start">
         <Grid item xs={12} md={12}>
-          <Typography variant="h3">News</Typography>
+          <Typography variant="h3" color="primary">
+            News
+          </Typography>
         </Grid>
         <Grid item xs={12} md={5}>
           <ul style={{ padding: 0 }}>
@@ -105,7 +104,7 @@ function News({ pageContext, data, location }) {
                   <Grid container spacing={0}>
                     <Grid item xs={12} md={12}>
                       <StyledLink to={`/news/${article.slug}`}>
-                        <Typography variant="h4">{article.title}</Typography>
+                        <Typography variant="h6">{article.title}</Typography>
                       </StyledLink>
                     </Grid>
                     <Grid item xs={12} md={12}>
@@ -126,15 +125,13 @@ function News({ pageContext, data, location }) {
           <Grid item xs={12}>
             <Pagination
               page={humanPageNumber}
-              renderItem={item =>
-                console.log("item", handlePagePath(item)) || (
-                  <PaginationItem
-                    component={Link}
-                    to={handlePagePath(item)}
-                    {...item}
-                  />
-                )
-              }
+              renderItem={item => (
+                <PaginationItem
+                  component={Link}
+                  to={handlePagePath(item)}
+                  {...item}
+                />
+              )}
               count={numberOfPages}
             ></Pagination>
           </Grid>
