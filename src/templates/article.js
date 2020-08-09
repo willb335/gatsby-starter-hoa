@@ -18,7 +18,7 @@ const DatePublished = styled(Typography)`
 
 export const query = graphql`
   query($slug: String!, $id: String!) {
-    contentfulNews(slug: { eq: $slug }) {
+    contentfulArticles(slug: { eq: $slug }) {
       title
       datePublished(formatString: "MMMM Do, YYYY")
       body {
@@ -38,22 +38,22 @@ export const query = graphql`
 `;
 
 function Article(props) {
-  const { contentfulAsset, contentfulNews } = props.data;
+  const { contentfulAsset, contentfulArticles } = props.data;
 
   return (
     <Layout>
       <Seo
-        title={contentfulNews.title}
-        description={contentfulNews.title}
-        author={contentfulNews.author}
+        title={contentfulArticles.title}
+        description={contentfulArticles.title}
+        author={contentfulArticles.author}
       />
       <Grid container spacing={3} alignItems="center" justify="center">
         <Grid item xs={12} md={6}>
           <Typography variant="h3" color="primary">
-            {contentfulNews.title}
+            {contentfulArticles.title}
           </Typography>
           <DatePublished variant="body1" color="textSecondary">
-            {contentfulNews.datePublished}
+            {contentfulArticles.datePublished}
           </DatePublished>
         </Grid>
         <Grid item xs={12} md={6}></Grid>
@@ -64,7 +64,7 @@ function Article(props) {
         </Grid>
         <Grid item xs={12} md={12}>
           <Typography component="div" color="textPrimary">
-            {documentToReactComponents(props.data.contentfulNews.body.json)}
+            {documentToReactComponents(contentfulArticles.body.json)}
           </Typography>
         </Grid>
       </Grid>

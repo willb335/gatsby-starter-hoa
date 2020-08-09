@@ -6,7 +6,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const articleTemplate = path.resolve("./src/templates/article.js");
   const res = await graphql(`
     query {
-      allContentfulNews {
+      allContentfulArticles {
         edges {
           node {
             slug
@@ -19,11 +19,11 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const { allContentfulNews } = res.data;
+  const { allContentfulArticles } = res.data;
 
-  console.log("data", JSON.stringify(allContentfulNews.edges));
+  console.log("data", JSON.stringify(allContentfulArticles.edges));
 
-  allContentfulNews.edges.forEach(edge => {
+  allContentfulArticles.edges.forEach(edge => {
     createPage({
       component: articleTemplate,
       path: `/news/${edge.node.slug}`,
@@ -36,7 +36,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
 
   paginate({
     createPage,
-    items: allContentfulNews.edges,
+    items: allContentfulArticles.edges,
     itemsPerPage: 4,
     pathPrefix: "/news",
     component: path.resolve("./src/templates/news.js"),

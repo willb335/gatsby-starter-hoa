@@ -33,7 +33,7 @@ const StyledLink = styled(Link)`
 
 export const query = graphql`
   query($skip: Int!, $limit: Int!) {
-    allContentfulNews(
+    allContentfulArticles(
       sort: { fields: datePublished, order: DESC }
       limit: $limit
       skip: $skip
@@ -87,7 +87,7 @@ function News({ pageContext, data, location }) {
     }
   };
 
-  const { articles } = data.allContentfulNews;
+  const { articles } = data.allContentfulArticles;
   const { fluid, description } = data.contentfulAsset;
 
   return (
@@ -140,8 +140,8 @@ function News({ pageContext, data, location }) {
           </Grid>
         </Grid>
         <Grid item xs={false} md={1}></Grid>
-        <Grid item xs={12} md={6}>
-          <Paper elevation={5}>
+        <Grid item xs={12} md={6} style={{ height: "100%" }}>
+          <Paper elevation={5} style={{ height: "100%" }}>
             <Img fluid={fluid} fadeIn alt={description}></Img>
           </Paper>
         </Grid>
