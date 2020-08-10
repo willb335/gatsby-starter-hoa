@@ -9,7 +9,7 @@ const path = require("path");
 
 module.exports = {
   siteMetadata: {
-    title: "Cicero Home Owners Association",
+    title: "Home Owners Association",
     description: "A template website for Home Owner Associations",
     author: "Cicero",
     year: new Date().getFullYear(),
