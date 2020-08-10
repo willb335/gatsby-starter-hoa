@@ -1,5 +1,8 @@
 import React from "react";
-import ReactCarousel, { Dots } from "@brainhubeu/react-carousel";
+import ReactCarousel, {
+  Dots,
+  autoplayPlugin,
+} from "@brainhubeu/react-carousel";
 
 import "@brainhubeu/react-carousel/lib/style.css";
 
@@ -10,24 +13,15 @@ class Carousel extends React.Component {
     this.setState({ value });
   };
 
-  onClick = e => console.log(e);
-
   render() {
+    const { value } = this.state;
+    const { children } = this.props;
     return (
       <>
-        <ReactCarousel
-          value={this.state.value}
-          onChange={this.onchange}
-          onClick={this.onClick}
-          plugins={["infinite", "clickToChange", "fastSwipe"]}
-        >
-          {this.props.children}
+        <ReactCarousel value={value} onChange={this.onchange}>
+          {children}
         </ReactCarousel>
-        <Dots
-          value={this.state.value}
-          onChange={this.onchange}
-          number={this.props?.children?.length}
-        />
+        <Dots value={value} onChange={this.onchange} number={children.length} />
       </>
     );
   }
