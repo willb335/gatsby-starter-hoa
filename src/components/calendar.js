@@ -10,6 +10,9 @@ import useMediaQuery from "@material-ui/core/useMediaQuery";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const StyledCalendar = styled(Calendar)`
+  max-width: 1333px;
+  margin-bottom: 30px;
+  height: ${props => (props.mobile === "true" ? "60vh" : "80vh")};
   ${({ theme }) => `
   & .rbc-event-content {
     background-color: ${theme.palette.primary.main};
@@ -41,7 +44,17 @@ const StyledCalendar = styled(Calendar)`
   & .rbc-toolbar button {
     outline: ${theme.palette.primary.main}
   }
+
+  & .rbc-toolbar {
+    margin: 30px 30px 30px 30px;
+  }
   `}
+`;
+
+const PopoverGrid = styled(Grid)`
+  padding: 25px;
+  text-align: center;
+  max-width: 500px;
 `;
 
 const localizer = momentLocalizer(moment);
@@ -64,18 +77,13 @@ function BigCalendar({ events }) {
   const id = open ? "simple-popover" : undefined;
   return (
     <Grid container justify="center" alignItems="center">
-      <Grid item xs={12} m={12}>
+      <Grid item xs={12}>
         <StyledCalendar
           localizer={localizer}
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{
-            height: mobile ? "40vh" : "80vh",
-            maxWidth: 1333,
-            // minWidth: 600,
-            marginBottom: "5vh",
-          }}
+          mobile={mobile ? "true" : "false"}
           titleAccessor={e => e.title}
           onSelectEvent={(obj, e) => handleSelectEvent(obj, e)}
           views={{ month: true, week: true }}
@@ -88,16 +96,7 @@ function BigCalendar({ events }) {
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
-          <Grid
-            container
-            justify="center"
-            alignItems="center"
-            style={{
-              padding: 25,
-              textAlign: "center",
-              maxWidth: 500,
-            }}
-          >
+          <PopoverGrid container justify="center" alignItems="center">
             <Grid item xs={12} m={6}>
               <Typography variant="h6">{event.title}</Typography>
             </Grid>
@@ -110,7 +109,7 @@ function BigCalendar({ events }) {
             <Grid item xs={12} m={6}>
               <Typography variant="body1">{event.end?.toString()}</Typography>
             </Grid>
-          </Grid>
+          </PopoverGrid>
         </Popover>
       </Grid>
     </Grid>

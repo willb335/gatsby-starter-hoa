@@ -13,8 +13,8 @@ function Calendar() {
   const data = useStaticQuery(graphql`
     query {
       allContentfulCalendar {
-        items: edges {
-          item: node {
+        events: edges {
+          event: node {
             allDay
             contentful_id
             id
@@ -30,20 +30,24 @@ function Calendar() {
     }
   `);
 
-  const { items } = data.allContentfulCalendar;
-  const events =
-    items.length &&
-    items.map(({ item }) => {
-      const start = moment(item.start).toDate();
-      const end = moment(item.end).toDate();
+  const { events } = data.allContentfulCalendar;
+  const calendarEvents =
+    events.length &&
+    events.map(({ event }) => {
+      const start = moment(event.start).toDate();
+      const end = moment(event.end).toDate();
+      const id = event.id;
+      const title = event.title;
+      const allDay = event.allDay;
+      const description = event.description.description;
 
       return {
-        id: item.id,
-        title: item.title,
+        id,
+        title,
         start,
         end,
-        allDay: item.allDay,
-        description: item.description.description,
+        allDay,
+        description,
       };
     });
 
@@ -53,15 +57,15 @@ function Calendar() {
         title="Cicero HOA Calendar"
         description="See a calendar of upcoming events"
       />
-      <Grid container spacing={3} justify="center" alignItems="center">
+      <Grid container spacing={3} justify="center" alignevents="center">
         <Grid item xs={12}>
           <Typography variant="h3" color="primary">
             Cicero HOA Calendar
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <Paper elevation={5} style={{}}>
-            <BigCalendar events={events} />
+          <Paper elevation={5}>
+            <BigCalendar events={calendarEvents} />
           </Paper>
         </Grid>
       </Grid>
