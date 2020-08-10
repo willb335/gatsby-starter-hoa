@@ -48,9 +48,6 @@ const StyledCalendar = styled(Calendar)`
     margin: 30px 30px 30px 30px;
   }
 
-  & .rbc-calendar {
-    height: ${props => (props.mobile === "true" ? "60vh" : "80vh")};
-  }
   `}
 `;
 
@@ -80,7 +77,7 @@ function BigCalendar({ events }) {
   const id = open ? "simple-popover" : undefined;
   return (
     <Grid container justify="center" alignItems="center">
-      <Grid item xs={12}>
+      <Grid item xs={12} style={{ height: mobile ? "60vh" : "80vh" }}>
         <StyledCalendar
           localizer={localizer}
           events={events}
