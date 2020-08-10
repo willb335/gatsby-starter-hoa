@@ -49,8 +49,8 @@ function Contact() {
             {documentToReactComponents(json)}
           </StyledTypography>
         </Grid>
-        <Grid item xs={false} md={1}></Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={false} md={2}></Grid>
+        <Grid item xs={12} md={5}>
           <ContactForm />
         </Grid>
       </Grid>
