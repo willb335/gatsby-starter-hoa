@@ -11,9 +11,7 @@ import Seo from "../components/seo";
 import ContactForm from "../components/contactForm";
 
 const StyledTypography = styled(Typography)`
-  ${({ theme }) => `
-  color: ${theme.palette.text.secondary};
-  `}
+  ${({ theme }) => `color: ${theme.palette.text.secondary};`}
 `;
 
 function Contact() {
@@ -33,12 +31,15 @@ function Contact() {
 
   return (
     <Layout>
-      <Seo title={"Contact Us"} description={"Get in touch with our HOA"} />
+      <Seo
+        title={"Contact Us"}
+        description={"Get in touch with our Home Owners Association"}
+      />
       <Grid
         container
         spacing={3}
         alignItems="flex-start"
-        justify="space-evenly"
+        justify="space-between"
       >
         <Grid item xs={12} md={6}>
           <Typography variant="h3" color="primary">
