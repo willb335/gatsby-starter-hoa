@@ -53,13 +53,13 @@ function Calendar() {
   return (
     <Layout>
       <Seo
-        title="Cicero HOA Calendar"
+        title="HOA Calendar"
         description="See a calendar of upcoming events"
       />
       <Grid container spacing={3} justify="center" alignevents="center">
         <Grid item xs={12}>
           <Typography variant="h3" color="primary">
-            Cicero HOA Calendar
+            HOA Calendar
           </Typography>
         </Grid>
         <Grid item xs={12}>

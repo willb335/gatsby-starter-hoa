@@ -14,7 +14,7 @@ import Seo from "../components/seo";
 
 const StyledArticle = styled.li`
   list-style-type: none;
-  margin-bottom: 3vh;
+  margin-bottom: 2vh;
 `;
 
 const StyledTypography = styled(Typography)`
