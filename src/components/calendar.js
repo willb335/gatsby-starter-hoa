@@ -5,14 +5,13 @@ import Grid from "@material-ui/core/Grid";
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const StyledCalendar = styled(Calendar)`
   max-width: 1333px;
   margin-bottom: 30px;
-  height: ${props => (props.mobile === "true" ? "60vh" : "80vh")};
+  height: 80vh;
   ${({ theme }) => `
   & .rbc-event-content {
     background-color: ${theme.palette.primary.main};
@@ -60,7 +59,6 @@ const PopoverGrid = styled(Grid)`
 const localizer = momentLocalizer(moment);
 
 function BigCalendar({ events }) {
-  const mobile = useMediaQuery("(max-width:960px)");
   const [event, setEvent] = useState({});
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -83,7 +81,6 @@ function BigCalendar({ events }) {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          mobile={mobile ? "true" : "false"}
           titleAccessor={e => e.title}
           onSelectEvent={(obj, e) => handleSelectEvent(obj, e)}
           views={{ month: true, week: true }}
