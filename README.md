@@ -1,6 +1,6 @@
 A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-starter-minimal-blog](https://minimal-blog.lekoarts.de/). With setup help from [gatsby-starter-mate](https://github.com/EmaSuriano/gatsby-starter-mate).
 
-#### [HOA Template](https://frosty-torvalds-822eb0.netlify.app/)
+### [Web Site](https://frosty-torvalds-822eb0.netlify.app/)
 
 ![](screenshots/cicero_hoa.png)
 
@@ -13,7 +13,7 @@ This starter is based on [Contentful](https://contentful.com), which is a headle
 To copy and install this starter run this command:
 
 ```bash
-git clone gatsby-starter-hoa;
+git clone git@github.com:willb335/Chapman-Farms.git;
 npm install
 ```
 
@@ -92,6 +92,24 @@ After this step we can finally run the project and see the result in http://loca
 ```bash
 $ npm run develop
 ```
+
+### Deployment
+
+#### Netlify Deployment From Git
+
+1.  [New Netlify website from Git](https://app.netlify.com/start)
+
+2.  Connect with GitHub and select your repo
+
+3.  Navigate to Netlify: **Settings** → **Build & Deploy** → **Build Environment Variables**. Add the following environment variables using the Space ID and Content Delivery API - access token from Contentful. The variables must be named exactly like this in order to work properly.
+
+```
+GATSBY_CONTENTFUL_ACCESS_TOKEN
+GATSBY_CONTENTFUL_SPACE_ID
+GATSBY_CONTENTFUL_MANAGEMENT_TOKEN
+```
+
+4.  Navigate to Netlify: **Deploys**. Click `Trigger deploy` to manually trigger a deploy to confirm the website is building successfully using your build environment variables. At this point be aware that every time you push to `master` a deploy will automatically start and be published to production.
 
 ### Commands
 
