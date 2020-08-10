@@ -23,8 +23,8 @@ export default function Home() {
   const data = useStaticQuery(graphql`
     query {
       allContentfulGallery {
-        edges {
-          node {
+        photos: edges {
+          photo: node {
             id
             description
             photo {
@@ -49,7 +49,7 @@ export default function Home() {
     }
   `);
 
-  const photos = data?.allContentfulGallery?.edges;
+  const { photos } = data.allContentfulGallery;
   const { title, body } = data.contentfulCommunity;
 
   return (
@@ -64,7 +64,7 @@ export default function Home() {
         alignItems="flex-start"
         justify="space-between"
       >
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12}>
           <Typography variant="h3" color="primary">
             {title}
           </Typography>
@@ -78,14 +78,14 @@ export default function Home() {
         <StyledGrid item xs={12} md={6}>
           <Carousel>
             {photos &&
-              photos.map(({ node }, i) => {
-                const { fluid, fixed } = node.photo;
-                const { description, id } = node;
+              photos.map(({ photo }, i) => {
+                const { fluid, fixed } = photo.photo;
+                const { description, id } = photo;
                 return mobile ? (
                   <Paper
                     key={id}
                     elevation={5}
-                    style={{ width: "100%", height: "100" }}
+                    style={{ width: "100%", height: "100%" }}
                   >
                     <Img
                       style={{ width: "100%", height: "100%" }}
@@ -100,12 +100,7 @@ export default function Home() {
                     elevation={5}
                     style={{ width: "100%", height: 700 }}
                   >
-                    <Img
-                      fixed={fixed}
-                      fadeIn
-                      alt={node.description}
-                      style={{ width: "100%", height: 700 }}
-                    ></Img>
+                    <Img fixed={fixed} fadeIn alt={description}></Img>
                   </Paper>
                 );
               })}

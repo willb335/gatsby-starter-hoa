@@ -1,8 +1,5 @@
 import React from "react";
-import ReactCarousel, {
-  Dots,
-  autoplayPlugin,
-} from "@brainhubeu/react-carousel";
+import ReactCarousel, { Dots } from "@brainhubeu/react-carousel";
 
 import "@brainhubeu/react-carousel/lib/style.css";
 
@@ -17,12 +14,12 @@ class Carousel extends React.Component {
     const { value } = this.state;
     const { children } = this.props;
     return (
-      <>
+      <div>
         <ReactCarousel value={value} onChange={this.onchange}>
           {children}
         </ReactCarousel>
         <Dots value={value} onChange={this.onchange} number={children.length} />
-      </>
+      </div>
     );
   }
 }
