@@ -4,7 +4,7 @@ A starter template to build amazing static websites with Gatsby, Contentful and 
 
 ![](screenshots/cicero_hoa.png)
 
-This starter is totally content based on [Contentful](https://contentful.com), which is a headless CMS where you can write the content for your page. In summary, Contentful is the Model when Gatsby with React is the View.
+This starter is based on [Contentful](https://contentful.com), which is a headless CMS where you can write the content for your page. In summary, Contentful is the Model where Gatsby with React is the View.
 
 ### Lighthouse Score
 
@@ -17,13 +17,13 @@ git clone gatsby-starter-hoa;
 npm install
 ```
 
-At this point you have the repository download with all the dependencies installed, but if you try to start by running `gatsby develop` you are going to received this message in the console:
+At this point you have the repo with all the dependencies installed, but if you try to run `gatsby develop` you're going to received this message in the console:
 
 ```bash
   TypeError: Expected parameter accessToken
 ```
 
-This is because you didn't specify from which `Contentful` space the portfolio will take the information. So the next step is create an empty space in [Contentful](https://www.contentful.com/)!
+This is because you didn't specify a `Contentful` space to export the data to. So the next step is to create an empty space in [Contentful](https://www.contentful.com/)!
 
 After the space is created, run the following command:
 
@@ -39,7 +39,13 @@ This CLI will request 3 values:
 
 These 3 values are inside the Settings section --> API keys.
 
-After you provide them the CLI will automatically starts copying all the `Content models` and `Contents` from `gatsby-starter-hoa` to your space ✨
+After you provide them the CLI will automatically starts copying all the `Content models` and `Contents` from
+
+```
+./bin/contentful-config.json
+```
+
+to your space ✨
 
 If everything went smooth you should see something like this in your terminal:
 
