@@ -32,7 +32,7 @@ const StyledTypography = styled(Typography)`
   ${({ theme }) => `
   color: ${theme.palette.text.secondary};
   transition: color 0.6s;
-  text-align: center;
+  text-align: right;
 
   &:hover {
     color: ${theme.palette.text.primary};
@@ -75,7 +75,7 @@ function Header() {
         <Grid item xs={7}>
           <nav>
             <ul>
-              <Grid container spacing={1} justify="space-between">
+              <Grid container spacing={0} justify="flex-end">
                 <Grid item xs={3}>
                   <ListItem>
                     <StyledLink to="/community">
@@ -88,7 +88,12 @@ function Header() {
                 <Grid item xs={3}>
                   <ListItem>
                     <StyledLink to="/news">
-                      <StyledTypography variant="h6">News</StyledTypography>
+                      <StyledTypography
+                        variant="h6"
+                        style={{ padding: "0 9px 0 0" }}
+                      >
+                        News
+                      </StyledTypography>
                     </StyledLink>
                   </ListItem>
                 </Grid>
