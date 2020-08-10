@@ -18,7 +18,7 @@ https://frosty-torvalds-822eb0.netlify.app/
 To copy and install this starter run this command:
 
 ```bash
-git clone git@github.com:willb335/Chapman-Farms.git;
+git clone git@github.com:willb335/gatsby-starter-hoa.git;
 npm install
 ```
 
