@@ -14,13 +14,11 @@ import Seo from "../components/seo";
 
 const StyledArticle = styled.li`
   list-style-type: none;
-  margin-bottom: 2vh;
+  margin-bottom: 3vh;
 `;
 
 const StyledTypography = styled(Typography)`
-  ${({ theme }) => `
-  color: ${theme.palette.text.secondary};
-  `}
+  ${({ theme }) => `color: ${theme.palette.text.secondary};`}
 `;
 
 const StyledLink = styled(Link)`
@@ -92,9 +90,9 @@ function News({ pageContext, data }) {
 
   return (
     <Layout>
-      <Seo title="HOA News" description="HOA news articles" />
+      <Seo title="HOA News" description="A collection of HOA news articles" />
       <Grid container spacing={0} alignItems="flex-start">
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12}>
           <Typography variant="h3" color="primary">
             News
           </Typography>
@@ -102,22 +100,23 @@ function News({ pageContext, data }) {
         <Grid item xs={12} md={5}>
           <ul style={{ padding: 0 }}>
             {articles.map(({ article }) => {
+              const { id, slug, title, author, datePublished } = article;
               return (
-                <StyledArticle key={article.id}>
+                <StyledArticle key={id}>
                   <Grid container spacing={0}>
-                    <Grid item xs={12} md={12}>
-                      <StyledLink to={`/news/${article.slug}`}>
-                        <Typography variant="h6">{article.title}</Typography>
+                    <Grid item xs={12}>
+                      <StyledLink to={`/news/${slug}`}>
+                        <Typography variant="h6">{title}</Typography>
                       </StyledLink>
                     </Grid>
-                    <Grid item xs={12} md={12}>
+                    <Grid item xs={12}>
                       <StyledTypography variant="body1">
-                        {article.author}
+                        {author}
                       </StyledTypography>
                     </Grid>
-                    <Grid item xs={12} md={12}>
+                    <Grid item xs={12}>
                       <StyledTypography variant="body1">
-                        {article.datePublished}
+                        {datePublished}
                       </StyledTypography>
                     </Grid>
                   </Grid>

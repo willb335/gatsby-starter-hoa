@@ -38,7 +38,6 @@ export default function Home() {
           }
         }
       }
-
       contentfulCommunity(contentful_id: { eq: "6SeHFE2r68J3Bvji6j746h" }) {
         id
         body {

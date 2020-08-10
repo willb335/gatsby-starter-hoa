@@ -11,9 +11,14 @@ import Layout from "../components/layout";
 import Seo from "../components/seo";
 
 const DatePublished = styled(Typography)`
-  ${({ theme }) => `
-  color: ${theme.palette.text.secondary};
-  `}
+  ${({ theme }) => `color: ${theme.palette.text.secondary};`}
+`;
+
+const FlexContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%100%;
 `;
 
 export const query = graphql`
@@ -44,7 +49,7 @@ function Article(props) {
     <Layout>
       <Seo
         title={contentfulArticles.title}
-        description={contentfulArticles.title}
+        description={"Find all the recent news about your HOA here"}
         author={contentfulArticles.author}
       />
       <Grid container spacing={3} alignItems="center" justify="center">
@@ -62,10 +67,17 @@ function Article(props) {
             <Img fluid={contentfulAsset.fluid} alt={contentfulAsset.title} />
           </Paper>
         </Grid>
-        <Grid item xs={12} md={12}>
-          <Typography component="div" color="textPrimary">
-            {documentToReactComponents(contentfulArticles.body.json)}
-          </Typography>
+
+        <Grid item xs={12}>
+          <FlexContainer>
+            <Typography
+              component="div"
+              color="textPrimary"
+              style={{ maxWidth: 800 }}
+            >
+              {documentToReactComponents(contentfulArticles.body.json)}
+            </Typography>
+          </FlexContainer>
         </Grid>
       </Grid>
     </Layout>
