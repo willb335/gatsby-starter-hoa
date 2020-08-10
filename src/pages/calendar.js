@@ -16,7 +16,6 @@ function Calendar() {
         events: edges {
           event: node {
             allDay
-            contentful_id
             id
             start
             end

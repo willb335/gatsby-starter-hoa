@@ -14,10 +14,10 @@ export default function Home() {
     query {
       contentfulAsset(contentful_id: { eq: "1oGFZ8nWAupdamJd0DOkV8" }) {
         id
-        title
         fluid {
           ...GatsbyContentfulFluid_withWebp
         }
+        description
       }
       contentfulHome(contentful_id: { eq: "4INJEtKpNVWj8YbwPMUUqO" }) {
         id
@@ -30,7 +30,7 @@ export default function Home() {
   `);
 
   const { title, body } = data.contentfulHome;
-  const { fluid } = data.contentfulAsset;
+  const { fluid, description } = data.contentfulAsset;
 
   return (
     <Layout>
@@ -41,7 +41,7 @@ export default function Home() {
         alignItems="flex-start"
         justify="space-between"
       >
-        <Grid item xs={12} md={12}>
+        <Grid item xs={12}>
           <Typography variant="h3" color="textPrimary">
             {title}
           </Typography>
@@ -54,7 +54,7 @@ export default function Home() {
         <Grid item xs={false} md={1}></Grid>
         <Grid item xs={12} md={6}>
           <Paper elevation={5}>
-            <Img fluid={fluid} fadeIn alt={data.contentfulAsset.title}></Img>
+            <Img fluid={fluid} fadeIn alt={description}></Img>
           </Paper>
         </Grid>
       </Grid>
