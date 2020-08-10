@@ -1,14 +1,12 @@
 A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-starter-minimal-blog](https://minimal-blog.lekoarts.de/). With setup help from [gatsby-starter-mate](https://github.com/EmaSuriano/gatsby-starter-mate).
 
-### [Web Site](https://frosty-torvalds-822eb0.netlify.app/)
+### Demo
+
+https://frosty-torvalds-822eb0.netlify.app/
 
 ![](screenshots/cicero_hoa.png)
 
 This starter is based on [Contentful](https://contentful.com), which is a headless CMS where you can write the content for your page. In summary, Contentful is the Model where Gatsby with React is the View.
-
-### Lighthouse Score
-
-![Lighthouse Score](screenshots/lighthouse_score.png)
 
 To copy and install this starter run this command:
 
