@@ -32,7 +32,10 @@ const setup = async () => {
   );
 
   console.log("Writing config file...");
-  const envData = [`SPACE_ID=${spaceId}`, `ACCESS_TOKEN=${deliveryToken}`];
+  const envData = [
+    `GATSBY_CONTENTFUL_SPACE_ID=${spaceId}`,
+    `GATSBY_CONTENTFUL_ACCESS_TOKEN=${deliveryToken}`,
+  ];
   writeFileSync(CONFIG_FILE_PATH, envData.join(os.EOL));
 
   console.log("Importing content into your Contentful ...");
