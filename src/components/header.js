@@ -172,17 +172,17 @@ export function MobileHeader() {
             </MenuItem>
 
             <MenuItem onClick={handleClose}>
-              <StyledLink to="/calendar">
+              <StyledLink to="/news">
                 <StyledTypography variant="body1" color="secondary">
-                  Calendar
+                  News
                 </StyledTypography>
               </StyledLink>
             </MenuItem>
 
             <MenuItem onClick={handleClose}>
-              <StyledLink to="/news">
+              <StyledLink to="/calendar">
                 <StyledTypography variant="body1" color="secondary">
-                  News
+                  Calendar
                 </StyledTypography>
               </StyledLink>
             </MenuItem>

@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
@@ -46,6 +47,7 @@ const StyledCalendar = styled(Calendar)`
 const localizer = momentLocalizer(moment);
 
 function BigCalendar({ events }) {
+  const mobile = useMediaQuery("(max-width:960px)");
   const [event, setEvent] = useState({});
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -68,7 +70,12 @@ function BigCalendar({ events }) {
           events={events}
           startAccessor="start"
           endAccessor="end"
-          style={{ height: "80vh", maxWidth: 1333, marginBottom: "5vh" }}
+          style={{
+            height: mobile ? "40vh" : "80vh",
+            maxWidth: 1333,
+            // minWidth: 600,
+            marginBottom: "5vh",
+          }}
           titleAccessor={e => e.title}
           onSelectEvent={(obj, e) => handleSelectEvent(obj, e)}
           views={{ month: true, week: true }}
