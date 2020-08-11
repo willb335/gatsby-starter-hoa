@@ -11,7 +11,6 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const StyledCalendar = styled(Calendar)`
   max-width: 1333px;
-  margin-bottom: 30px;
   ${({ theme }) => `
   & .rbc-event-content {
     background-color: ${theme.palette.primary.main};
@@ -76,7 +75,12 @@ function BigCalendar({ events }) {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   return (
-    <Grid container justify="center" alignItems="center">
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      style={{ marginBottom: "4rem" }}
+    >
       <Grid item xs={12} style={{ height: mobile ? "60vh" : "80vh" }}>
         <StyledCalendar
           localizer={localizer}

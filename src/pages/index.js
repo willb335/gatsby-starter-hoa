@@ -40,6 +40,7 @@ export default function Home() {
         spacing={0}
         alignItems="flex-start"
         justify="space-between"
+        style={{ marginBottom: "4rem" }}
       >
         <Grid item xs={12}>
           <Typography variant="h3" color="textPrimary">

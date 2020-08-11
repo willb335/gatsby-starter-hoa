@@ -40,6 +40,7 @@ function Contact() {
         spacing={3}
         alignItems="flex-start"
         justify="space-between"
+        style={{ marginBottom: "4rem" }}
       >
         <Grid item xs={12} md={6}>
           <Typography variant="h3" color="primary">
