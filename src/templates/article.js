@@ -52,7 +52,13 @@ function Article(props) {
         description={"Find all the recent news about your HOA here"}
         author={contentfulArticles.author}
       />
-      <Grid container spacing={0} alignItems="center" justify="center">
+      <Grid
+        container
+        spacing={0}
+        alignItems="center"
+        justify="center"
+        style={{ marginBottom: "4rem" }}
+      >
         <Grid item xs={12} md={6}>
           <Typography variant="h3" color="primary">
             {contentfulArticles.title}
@@ -68,7 +74,7 @@ function Article(props) {
           </Paper>
         </Grid>
 
-        <Grid item xs={12} style={{ margin: "3rem 0 3rem 0" }}>
+        <Grid item xs={12} style={{ margin: "3rem 0 0 0" }}>
           <FlexContainer>
             <Typography
               component="div"

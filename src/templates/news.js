@@ -13,7 +13,7 @@ import Seo from "../components/seo";
 
 const StyledArticle = styled.li`
   list-style-type: none;
-  margin-bottom: 2vh;
+  margin-bottom: 1rem;
 `;
 
 const StyledTypography = styled(Typography)`
@@ -88,7 +88,13 @@ function News({ pageContext, data }) {
   return (
     <Layout>
       <Seo title="HOA News" description="A collection of HOA news articles" />
-      <Grid container spacing={0} alignItems="flex-start">
+      <Grid
+        container
+        spacing={0}
+        alignItems="flex-start"
+        justify="space-between"
+        style={{ marginBottom: "4rem" }}
+      >
         <Grid item xs={12}>
           <Typography variant="h3" color="primary">
             News
@@ -123,7 +129,6 @@ function News({ pageContext, data }) {
           </ul>
           <Grid item xs={12}>
             <Pagination
-              style={{ marginBottom: "4rem" }}
               page={humanPageNumber}
               renderItem={item => (
                 <PaginationItem
@@ -137,12 +142,7 @@ function News({ pageContext, data }) {
           </Grid>
         </Grid>
         <Grid item xs={false} md={1}></Grid>
-        <Grid
-          item
-          xs={12}
-          md={6}
-          // style={{ marginBottom: 30, marginTop: mobile && 50 }}
-        >
+        <Grid item xs={12} md={6}>
           <Paper elevation={5} style={{ width: "100%", height: "50vh" }}>
             <Img
               fluid={fluid}

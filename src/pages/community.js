@@ -5,7 +5,6 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import styled from "styled-components";
 
 import Layout from "../components/layout";
@@ -19,7 +18,6 @@ const StyledGrid = styled(Grid)`
 `;
 
 export default function Home() {
-  const mobile = useMediaQuery("(max-width:960px)");
   const data = useStaticQuery(graphql`
     query {
       allContentfulGallery {
@@ -78,20 +76,7 @@ export default function Home() {
               photos.map(({ photo }, i) => {
                 const { fluid } = photo.photo;
                 const { description, id } = photo;
-                return mobile ? (
-                  <Paper
-                    key={id}
-                    elevation={5}
-                    style={{ width: "100%", height: "100%" }}
-                  >
-                    <Img
-                      style={{ width: "100%", height: "100%" }}
-                      fluid={fluid}
-                      fadeIn
-                      alt={description}
-                    ></Img>
-                  </Paper>
-                ) : (
+                return (
                   <Paper
                     key={id}
                     elevation={5}

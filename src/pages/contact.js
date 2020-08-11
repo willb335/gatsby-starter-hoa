@@ -37,7 +37,7 @@ function Contact() {
       />
       <Grid
         container
-        spacing={3}
+        spacing={0}
         alignItems="flex-start"
         justify="space-between"
         style={{ marginBottom: "4rem" }}
