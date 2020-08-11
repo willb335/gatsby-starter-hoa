@@ -18,7 +18,7 @@ const FlexContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%100%;
+  width: 100%;
 `;
 
 export const query = graphql`
@@ -52,7 +52,7 @@ function Article(props) {
         description={"Find all the recent news about your HOA here"}
         author={contentfulArticles.author}
       />
-      <Grid container spacing={3} alignItems="center" justify="center">
+      <Grid container spacing={0} alignItems="center" justify="center">
         <Grid item xs={12} md={6}>
           <Typography variant="h3" color="primary">
             {contentfulArticles.title}
@@ -62,13 +62,13 @@ function Article(props) {
           </DatePublished>
         </Grid>
         <Grid item xs={12} md={6}></Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={6} style={{ margin: "3rem 0 0 0" }}>
           <Paper elevation={5}>
             <Img fluid={contentfulAsset.fluid} alt={contentfulAsset.title} />
           </Paper>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ margin: "3rem 0 3rem 0" }}>
           <FlexContainer>
             <Typography
               component="div"
