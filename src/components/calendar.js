@@ -5,7 +5,6 @@ import Grid from "@material-ui/core/Grid";
 import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
 import styled from "styled-components";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
@@ -51,15 +50,20 @@ const StyledCalendar = styled(Calendar)`
 `;
 
 const PopoverGrid = styled(Grid)`
-  padding: 25px;
-  text-align: center;
+  padding: 20px;
   max-width: 500px;
+`;
+
+const StyledGrid = styled(Grid)`
+  height: 80vh;
+  @media (max-width: 960px) {
+    height: 60vh;
+  }
 `;
 
 const localizer = momentLocalizer(moment);
 
 function BigCalendar({ events }) {
-  const mobile = useMediaQuery("(max-width:960px)");
   const [event, setEvent] = useState({});
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -75,19 +79,13 @@ function BigCalendar({ events }) {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
   return (
-    <Grid
-      container
-      justify="center"
-      alignItems="center"
-      style={{ marginBottom: "4rem" }}
-    >
-      <Grid item xs={12} style={{ height: mobile ? "60vh" : "80vh" }}>
+    <Grid container justify="center" alignItems="center">
+      <StyledGrid item xs={12}>
         <StyledCalendar
           localizer={localizer}
           events={events}
           startAccessor="start"
           endAccessor="end"
-          mobile={mobile ? "true" : "false"}
           titleAccessor={e => e.title}
           onSelectEvent={(obj, e) => handleSelectEvent(obj, e)}
           views={{ month: true, week: true }}
@@ -100,7 +98,7 @@ function BigCalendar({ events }) {
           anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
           transformOrigin={{ vertical: "top", horizontal: "center" }}
         >
-          <PopoverGrid container justify="center" alignItems="center">
+          <PopoverGrid container justify="flex-start" alignItems="center">
             <Grid item xs={12} m={6}>
               <Typography variant="h6">{event.title}</Typography>
             </Grid>
@@ -115,7 +113,7 @@ function BigCalendar({ events }) {
             </Grid>
           </PopoverGrid>
         </Popover>
-      </Grid>
+      </StyledGrid>
     </Grid>
   );
 }

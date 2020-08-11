@@ -2,7 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
-import { useForm } from "react-hook-form";
 import styled from "styled-components";
 
 const FlexContainer = styled.div`
@@ -17,8 +16,6 @@ const StyledButton = styled(Button)`
 `;
 
 function ContactForm() {
-  const { register } = useForm();
-
   return (
     <FlexContainer>
       <Typography variant="h5" color="primary">
@@ -38,7 +35,6 @@ function ContactForm() {
         <TextField
           variant="outlined"
           margin="normal"
-          inputRef={register}
           required
           fullWidth
           name="name"
@@ -49,7 +45,6 @@ function ContactForm() {
         <TextField
           variant="outlined"
           margin="normal"
-          inputRef={register}
           required
           fullWidth
           id="email"
@@ -61,7 +56,6 @@ function ContactForm() {
         <TextField
           variant="outlined"
           margin="normal"
-          inputRef={register}
           required
           fullWidth
           id="message"

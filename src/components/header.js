@@ -154,13 +154,14 @@ export function MobileHeader() {
   return (
     <StyledMobileHeader>
       <StyledAppBar position="static" color="transparent">
-        <Toolbar>
+        <Toolbar style={{ padding: "0 0 0 2.5vw" }}>
           <IconButton
             edge="start"
             aria-label="menu"
             aria-controls="simple-menu"
             aria-haspopup="true"
             onClick={handleClick}
+            style={{ padding: "0 4px 0 0" }}
           >
             <MenuIcon />
           </IconButton>
@@ -173,7 +174,7 @@ export function MobileHeader() {
           >
             <MenuItem onClick={handleClose}>
               <MobileLink to="/">
-                <Typography variant="h6" color="primary">
+                <Typography variant="h6" color="primaryText">
                   Home
                 </Typography>
               </MobileLink>
@@ -181,7 +182,7 @@ export function MobileHeader() {
 
             <MenuItem onClick={handleClose}>
               <MobileLink to="/community">
-                <Typography variant="h6" color="primary">
+                <Typography variant="h6" color="primaryText">
                   Community
                 </Typography>
               </MobileLink>
@@ -189,7 +190,7 @@ export function MobileHeader() {
 
             <MenuItem onClick={handleClose}>
               <MobileLink to="/news">
-                <Typography variant="h6" color="primary">
+                <Typography variant="h6" color="primaryText">
                   News
                 </Typography>
               </MobileLink>
@@ -197,7 +198,7 @@ export function MobileHeader() {
 
             <MenuItem onClick={handleClose}>
               <MobileLink to="/calendar">
-                <Typography variant="h6" color="primary">
+                <Typography variant="h6" color="primaryText">
                   Calendar
                 </Typography>
               </MobileLink>
@@ -209,7 +210,7 @@ export function MobileHeader() {
               </MobileLink>
             </MenuItem>
           </Menu>
-          <Typography variant="h6" color="primary">
+          <Typography variant="h6" color="primaryText">
             Menu
           </Typography>
         </Toolbar>

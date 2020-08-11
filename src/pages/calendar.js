@@ -56,13 +56,13 @@ function Calendar() {
         title="HOA Calendar"
         description="See a calendar of upcoming events"
       />
-      <Grid container spacing={3} justify="center" alignevents="center">
+      <Grid container spacing={3} style={{ marginBottom: "5rem" }}>
         <Grid item xs={12}>
           <Typography variant="h3" color="primary">
             HOA Calendar
           </Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} style={{ marginTop: "1rem" }}>
           <Paper elevation={5}>
             <BigCalendar events={calendarEvents} />
           </Paper>
