@@ -97,9 +97,14 @@ export default function Home() {
                   <Paper
                     key={id}
                     elevation={5}
-                    style={{ width: "100%", height: 700 }}
+                    style={{ width: "100%", height: "50vh" }}
                   >
-                    <Img fixed={fixed} fadeIn alt={description}></Img>
+                    <Img
+                      fixed={fluid}
+                      fadeIn
+                      alt={description}
+                      style={{ width: "100%", height: "100%" }}
+                    ></Img>
                   </Paper>
                 );
               })}

@@ -53,8 +53,13 @@ export default function Home() {
         </Grid>
         <Grid item xs={false} md={1}></Grid>
         <Grid item xs={12} md={6}>
-          <Paper elevation={5}>
-            <Img fluid={fluid} fadeIn alt={description}></Img>
+          <Paper elevation={5} style={{ width: "100%", height: "50vh" }}>
+            <Img
+              fluid={fluid}
+              fadeIn
+              alt={description}
+              style={{ width: "100%", height: "100%" }}
+            ></Img>
           </Paper>
         </Grid>
       </Grid>

@@ -145,8 +145,13 @@ function News({ pageContext, data }) {
           md={6}
           style={{ marginBottom: 30, marginTop: mobile && 50 }}
         >
-          <Paper elevation={5}>
-            <Img fluid={fluid} fadeIn alt={description}></Img>
+          <Paper elevation={5} style={{ width: "100%", height: "50vh" }}>
+            <Img
+              fluid={fluid}
+              fadeIn
+              alt={description}
+              style={{ width: "100%", height: "100%" }}
+            ></Img>
           </Paper>
         </Grid>
       </Grid>
