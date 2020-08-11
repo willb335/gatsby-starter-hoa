@@ -7,7 +7,6 @@ import Pagination from "@material-ui/lab/Pagination";
 import PaginationItem from "@material-ui/lab/PaginationItem";
 import Img from "gatsby-image";
 import Paper from "@material-ui/core/Paper";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 import Layout from "../components/layout";
 import Seo from "../components/seo";
@@ -59,8 +58,6 @@ export const query = graphql`
 `;
 
 function News({ pageContext, data }) {
-  const mobile = useMediaQuery("(max-width:960px)");
-
   const {
     previousPagePath,
     nextPagePath,
@@ -91,7 +88,7 @@ function News({ pageContext, data }) {
   return (
     <Layout>
       <Seo title="HOA News" description="A collection of HOA news articles" />
-      <Grid container spacing={3} alignItems="flex-start">
+      <Grid container spacing={0} alignItems="flex-start">
         <Grid item xs={12}>
           <Typography variant="h3" color="primary">
             News
