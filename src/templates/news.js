@@ -126,6 +126,7 @@ function News({ pageContext, data }) {
           </ul>
           <Grid item xs={12}>
             <Pagination
+              style={{ marginBottom: "4rem" }}
               page={humanPageNumber}
               renderItem={item => (
                 <PaginationItem

@@ -15,8 +15,9 @@ const StyledFooter = styled.footer`
   width: calc(100vw - 10vw);
   position: absolute;
   bottom: 0;
-  height: 8rem;
-
+  max-height: 12rem;
+  margin: 0;
+  padding: 0;
   @media (min-width: 1366px) {
     width: calc(1366px - 10vw);
   }
@@ -41,17 +42,14 @@ function Footer() {
       <Grid
         container
         spacing={0}
-        alignItems="center"
-        style={{ height: "100%", marginTop: 50 }}
+        alignItems="flex-start"
+        style={{ height: "100%" }}
       >
-        {/* <Grid item xs={12}>
-        </Grid> */}
-
         <Grid item xs={12}>
           <StyledHr></StyledHr>
 
           <Typography
-            style={{ marginTop: "2rem" }}
+            style={{ marginTop: "2rem", marginBottom: "2rem" }}
             variant="body1"
             color="textPrimary"
           >{`© ${title} ${year}`}</Typography>
