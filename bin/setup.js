@@ -43,7 +43,7 @@ const setup = async () => {
 
   console.log(
     `All set! You can now run ${chalk.yellow(
-      "gatsby develop"
+      "npm run develop"
     )} to see it in action.`
   );
 };

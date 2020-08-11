@@ -25,7 +25,9 @@ npm install
 At this point you have the repo with all the dependencies installed, but if you try to run `gatsby develop` you're going to received this message in the console:
 
 ```bash
-  TypeError: Expected parameter accessToken
+Problems with gatsby-source-contentful plugin options:
+spaceId: undefined - "spaceId" is required
+accessToken: undefined - "accessToken" is required
 ```
 
 This is because you didn't specify a `Contentful` space to export the data to. So the next step is to create an empty space in [Contentful](https://www.contentful.com/)!

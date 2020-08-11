@@ -28,9 +28,6 @@ export default function Home() {
             id
             description
             photo {
-              fixed(width: 700, height: 700, quality: 100) {
-                ...GatsbyContentfulFixed_withWebp
-              }
               fluid {
                 ...GatsbyContentfulFluid_withWebp
               }
@@ -78,7 +75,7 @@ export default function Home() {
           <Carousel>
             {photos &&
               photos.map(({ photo }, i) => {
-                const { fluid, fixed } = photo.photo;
+                const { fluid } = photo.photo;
                 const { description, id } = photo;
                 return mobile ? (
                   <Paper
