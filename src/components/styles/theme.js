@@ -14,7 +14,10 @@ const theme = createMuiTheme({
       secondary: "#5f6c80",
     },
   },
-  typography: { h3: { fontWeight: 700 } },
+  typography: {
+    fontFamily: ["IBM Plex Sans", "sans-serif"],
+    h3: { fontWeight: 700 },
+  },
 });
 
 export default theme;

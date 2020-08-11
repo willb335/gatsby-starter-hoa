@@ -10,6 +10,8 @@ import Header, { MobileHeader } from "./header";
 import Footer from "./footer";
 import theme from "./styles/theme";
 
+import "./styles/layout.css";
+
 const ContentContainer = styled.div`
   padding-bottom: 5rem;
   margin: 5vh 0 0 0;

@@ -41,7 +41,7 @@ function Contact() {
         alignItems="flex-start"
         justify="space-between"
       >
-        <Grid item xs={12} md={5}>
+        <Grid item xs={12} md={6}>
           <Typography variant="h3" color="primary">
             {title}
           </Typography>
@@ -49,7 +49,7 @@ function Contact() {
             {documentToReactComponents(json)}
           </StyledTypography>
         </Grid>
-        <Grid item xs={false} md={2}></Grid>
+        <Grid item xs={false} md={1}></Grid>
         <Grid item xs={12} md={5}>
           <ContactForm />
         </Grid>
