@@ -2,7 +2,6 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Typography from "@material-ui/core/Typography";
-import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
 import Layout from "../components/layout";
