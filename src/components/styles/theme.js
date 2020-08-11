@@ -17,6 +17,7 @@ const theme = createMuiTheme({
   typography: {
     fontFamily: ["IBM Plex Sans", "sans-serif"],
     h3: { fontWeight: 700 },
+    h6: { fontWeight: 500 },
   },
 });
 

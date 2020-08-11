@@ -100,7 +100,7 @@ export default function Home() {
                     style={{ width: "100%", height: "50vh" }}
                   >
                     <Img
-                      fixed={fluid}
+                      fluid={fluid}
                       fadeIn
                       alt={description}
                       style={{ width: "100%", height: "100%" }}
