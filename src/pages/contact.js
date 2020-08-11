@@ -10,10 +10,6 @@ import Seo from "../components/seo";
 
 import ContactForm from "../components/contactForm";
 
-const StyledTypography = styled(Typography)`
-  ${({ theme }) => `color: ${theme.palette.text.secondary};`}
-`;
-
 function Contact() {
   const data = useStaticQuery(graphql`
     query {
@@ -46,9 +42,9 @@ function Contact() {
           <Typography variant="h3" color="primary">
             {title}
           </Typography>
-          <StyledTypography component="div" color="textPrimary">
+          <Typography component="div" color="textPrimary">
             {documentToReactComponents(json)}
-          </StyledTypography>
+          </Typography>
         </Grid>
         <Grid item xs={false} md={1}></Grid>
         <Grid item xs={12} md={5}>
