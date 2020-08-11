@@ -1,12 +1,6 @@
 require("dotenv").config();
 const path = require("path");
 
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-
 module.exports = {
   siteMetadata: {
     title: "Home Owners Association",
@@ -21,12 +15,7 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-awesome-pagination`,
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
-      },
-    },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

@@ -68,5 +68,5 @@ yarn-error.log
 # Yarn Integrity file
 .yarn-integrity
 
-# Exports space for other users
+# Exports contentful space for other users
 exportContentfulSpace.js
