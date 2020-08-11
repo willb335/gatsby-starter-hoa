@@ -90,7 +90,7 @@ function Header() {
                     <StyledLink to="/news">
                       <StyledTypography
                         variant="h6"
-                        style={{ padding: "0 9px 0 0" }}
+                        style={{ paddingRight: 9 }}
                       >
                         News
                       </StyledTypography>
@@ -133,6 +133,13 @@ const StyledMobileHeader = styled.header`
   margin-top: 10px;
 `;
 
+const MobileLink = styled(Link)`
+  ${({ theme }) => `
+  text-decoration: none;
+  color: ${theme.palette.text.primary} !important;
+  `}
+`;
+
 export function MobileHeader() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -165,46 +172,46 @@ export function MobileHeader() {
             onClose={handleClose}
           >
             <MenuItem onClick={handleClose}>
-              <StyledLink to="/">
-                <StyledTypography variant="body1" color="textPrimary">
+              <MobileLink to="/">
+                <Typography variant="h6" color="primary">
                   Home
-                </StyledTypography>
-              </StyledLink>
+                </Typography>
+              </MobileLink>
             </MenuItem>
 
             <MenuItem onClick={handleClose}>
-              <StyledLink to="/community">
-                <StyledTypography variant="body1" color="secondary">
+              <MobileLink to="/community">
+                <Typography variant="h6" color="primary">
                   Community
-                </StyledTypography>
-              </StyledLink>
+                </Typography>
+              </MobileLink>
             </MenuItem>
 
             <MenuItem onClick={handleClose}>
-              <StyledLink to="/news">
-                <StyledTypography variant="body1" color="secondary">
+              <MobileLink to="/news">
+                <Typography variant="h6" color="primary">
                   News
-                </StyledTypography>
-              </StyledLink>
+                </Typography>
+              </MobileLink>
             </MenuItem>
 
             <MenuItem onClick={handleClose}>
-              <StyledLink to="/calendar">
-                <StyledTypography variant="body1" color="secondary">
+              <MobileLink to="/calendar">
+                <Typography variant="h6" color="primary">
                   Calendar
-                </StyledTypography>
-              </StyledLink>
+                </Typography>
+              </MobileLink>
             </MenuItem>
 
             <MenuItem onClick={handleClose}>
-              <StyledLink to="/contact">
-                <StyledTypography variant="body1" color="secondary">
-                  Contact
-                </StyledTypography>
-              </StyledLink>
+              <MobileLink to="/contact">
+                <Typography variant="h6">Contact</Typography>
+              </MobileLink>
             </MenuItem>
           </Menu>
-          <Typography variant="h6">Menu</Typography>
+          <Typography variant="h6" color="primary">
+            Menu
+          </Typography>
         </Toolbar>
       </StyledAppBar>
       <StyledHr></StyledHr>
