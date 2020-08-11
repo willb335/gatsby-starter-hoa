@@ -43,7 +43,7 @@ function Seo({ description, keywords, title, image, url, author }) {
           : []
       )}
       link={[{ rel: "canonical", href: metaUrl }]}
-    ></Helmet>
+    />
   );
 }
 

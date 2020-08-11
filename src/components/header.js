@@ -162,6 +162,7 @@ export function MobileHeader() {
             aria-haspopup="true"
             onClick={handleClick}
             style={{ padding: "0 4px 0 0" }}
+            color="primary"
           >
             <MenuIcon />
           </IconButton>
@@ -174,7 +175,7 @@ export function MobileHeader() {
           >
             <MenuItem onClick={handleClose}>
               <MobileLink to="/">
-                <Typography variant="h6" color="primaryText">
+                <Typography variant="h6" color="textPrimary">
                   Home
                 </Typography>
               </MobileLink>
@@ -182,7 +183,7 @@ export function MobileHeader() {
 
             <MenuItem onClick={handleClose}>
               <MobileLink to="/community">
-                <Typography variant="h6" color="primaryText">
+                <Typography variant="h6" color="textPrimary">
                   Community
                 </Typography>
               </MobileLink>
@@ -190,7 +191,7 @@ export function MobileHeader() {
 
             <MenuItem onClick={handleClose}>
               <MobileLink to="/news">
-                <Typography variant="h6" color="primaryText">
+                <Typography variant="h6" color="textPrimary">
                   News
                 </Typography>
               </MobileLink>
@@ -198,7 +199,7 @@ export function MobileHeader() {
 
             <MenuItem onClick={handleClose}>
               <MobileLink to="/calendar">
-                <Typography variant="h6" color="primaryText">
+                <Typography variant="h6" color="textPrimary">
                   Calendar
                 </Typography>
               </MobileLink>
@@ -210,7 +211,7 @@ export function MobileHeader() {
               </MobileLink>
             </MenuItem>
           </Menu>
-          <Typography variant="h6" color="primaryText">
+          <Typography variant="h6" color="textPrimary">
             Menu
           </Typography>
         </Toolbar>
