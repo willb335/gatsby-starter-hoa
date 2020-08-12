@@ -1,4 +1,6 @@
-A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-starter-minimal-blog](https://minimal-blog.lekoarts.de/). With setup help from [gatsby-starter-mate](https://github.com/EmaSuriano/gatsby-starter-mate). [Contentful](https://contentful.com) is a headless CMS where you can write the content for your page. Contentful is the Model where Gatsby with React is the View.
+A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-starter-minimal-blog](https://minimal-blog.lekoarts.de/) and [gatsby-starter-mate](https://github.com/EmaSuriano/gatsby-starter-mate).
+
+What is Contentful? [Contentful](https://contentful.com) is a headless CMS where you can write the content for your page.
 
 ## Demo
 
@@ -10,23 +12,17 @@ https://frosty-torvalds-822eb0.netlify.app/
 
 ![](screenshots/lighthouse_score.png)
 
-## Features
-
-- Contentful integration with ready to go placeholder content
-- Netlify integration
-- Responsive design - made with Material UI Grid
-- Pagination logic
-- Theme UI
-- SEO Friendly Component
-
-To copy and install this starter run this command:
+To copy and install this starter run these two commands:
 
 ```bash
-git clone git@github.com:willb335/gatsby-starter-hoa.git;
+git clone git@github.com:willb335/gatsby-starter-hoa.git
+```
+
+```bash
 npm install
 ```
 
-At this point you have the repo with all the dependencies installed, but if you try to run `gatsby develop` you're going to received this message in the console:
+At this point you have the repo with all the dependencies installed, but if you try to run `gatsby develop` you're going to receive this message in the console:
 
 ```bash
 Problems with gatsby-source-contentful plugin options:
@@ -34,7 +30,7 @@ spaceId: undefined - "spaceId" is required
 accessToken: undefined - "accessToken" is required
 ```
 
-This is because you didn't specify a `Contentful` space to export the data to. So the next step is to create an empty space in [Contentful](https://www.contentful.com/)!
+The next step is to create an empty space in [Contentful](https://www.contentful.com/)! Once that is done we can export data to it.
 
 After the space is created, run the following command:
 
@@ -48,9 +44,9 @@ This CLI will request 3 values:
 - `Content Delivery API - access token`
 - `Personal Access Token`
 
-These 3 values are inside the Settings section --> API keys.
+These 3 values are inside the `Contentful` Settings section --> API keys.
 
-After you provide them the CLI will automatically starts copying all the `Content models` and `Contents` from
+After you provide the three keys the CLI will automatically start copying all the `Content models` and `Contents` from
 
 ```
 ./bin/contentful-config.json
@@ -117,12 +113,11 @@ $ npm run develop
 ```
 GATSBY_CONTENTFUL_ACCESS_TOKEN
 GATSBY_CONTENTFUL_SPACE_ID
-GATSBY_CONTENTFUL_MANAGEMENT_TOKEN
 ```
 
 4.  Navigate to Netlify: **Deploys**. Click `Trigger deploy` to manually trigger a deploy to confirm the website is building successfully using your build environment variables. At this point be aware that every time you push to `master` a deploy will automatically start and be published to production.
 
-### Commands
+### Useful Commands
 
 #### `npm run develop`
 
