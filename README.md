@@ -1,4 +1,4 @@
-##Unmaintained
+# Unmaintained
 
 
 A starter template to build amazing static websites with Gatsby, Contentful and Netlify. Inspired by [gatsby-starter-minimal-blog](https://minimal-blog.lekoarts.de/) and [gatsby-starter-mate](https://github.com/EmaSuriano/gatsby-starter-mate).
